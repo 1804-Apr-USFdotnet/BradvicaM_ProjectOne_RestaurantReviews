@@ -87,22 +87,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Console\DeleteRestaurantActionTests.cs" />
-    <Compile Include="Console\QuitActionTests.cs" />
-    <Compile Include="Console\RestaurantControllerTests.cs" />
-    <Compile Include="Console\HomeControllerTests.cs" />
-    <Compile Include="Console\TopThreeRatedRestaurantsActionTests.cs" />
-    <Compile Include="Console\AddRestaurantActionTests.cs" />
-    <Compile Include="Console\DefaultActionTests.cs" />
-    <Compile Include="Console\ReviewRestaurantActionTests.cs" />
-    <Compile Include="Console\AllReviewsOfRestaurantActionTests.cs" />
-    <Compile Include="Console\SearchActionTests.cs" />
-    <Compile Include="Console\ReviewControllerTests.cs" />
-    <Compile Include="Console\DeleteReviewActionTests.cs" />
-    <Compile Include="Console\UpdateReviewActionTests.cs" />
-    <Compile Include="Console\UpdateRestaurantActionTests.cs" />
-    <Compile Include="Console\ViewRestaurantDetailsActionTests.cs" />
-    <Compile Include="Console\ViewAllRestaurantsActionTests.cs" />
     <Compile Include="DomainServices\RestaurantServiceTests.cs" />
     <Compile Include="DomainServices\ReviewServiceTests.cs" />
     <Compile Include="Mappings\MappingProfileTests.cs" />
@@ -120,10 +104,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RR.Console\RR.Console.csproj">
-      <Project>{97661C42-E882-4962-A3EB-B4569D2A7539}</Project>
-      <Name>RR.Console</Name>
-    </ProjectReference>
     <ProjectReference Include="..\RR.DomainContracts\RR.DomainContracts.csproj">
       <Project>{42F03871-A175-43B4-8573-B05B10621846}</Project>
       <Name>RR.DomainContracts</Name>
