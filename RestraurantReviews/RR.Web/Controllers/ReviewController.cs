@@ -18,20 +18,20 @@ namespace RR.Web.Controllers
             _mapper = mapper;
         }
 
-        [Route("Review/Add")]
+        [Route("Review/Create")]
         [HttpPost]
-        public ActionResult AddReview(RestaurantViewModel viewModel)
-        {
-            return View();
-        }
-
-        [Route("Review/Add")]
-        [HttpPost]
-        public ActionResult AddReview(AddReviewViewModel viewModel)
+        public ActionResult CreateReview(AddReviewViewModel viewModel)
         {
             if (!ModelState.IsValid) return View(viewModel);
 
             return View();
+        }
+
+        [Route("Review/Edit")]
+        [HttpPost]
+        public ActionResult EditReview(ReviewViewModel viewModel)
+        {
+            return null;
         }
     }
 }

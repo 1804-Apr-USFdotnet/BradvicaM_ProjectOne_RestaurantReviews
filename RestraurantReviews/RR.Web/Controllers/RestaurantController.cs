@@ -20,7 +20,7 @@ namespace RR.Web.Controllers
 
         [Route("Restaurant/All")]
         [HttpGet]
-        public ActionResult AllRestaurants()
+        public ActionResult ListRestaurants()
         {
             var viewModel = _mapper.Map<IEnumerable<RestaurantViewModel>>(_restaurantService.AllRestaurants());
 
@@ -29,7 +29,7 @@ namespace RR.Web.Controllers
 
         [Route("Restaurant/All")]
         [HttpPost]
-        public ActionResult AllRestaurants(string searchBy)
+        public ActionResult ListRestaurants(string searchBy)
         {
             var restaurants = _restaurantService.AllRestaurants(searchBy);
 
@@ -40,14 +40,14 @@ namespace RR.Web.Controllers
 
         [Route("Restaurant/Add")]
         [HttpGet]
-        public ActionResult AddRestaurant()
+        public ActionResult CreateRestaurant()
         {
             return View();
         }
 
         [Route("Restaurant/Add")]
         [HttpPost]
-        public ActionResult AddRestaurant(AddRestaurantViewModel viewModel)
+        public ActionResult CreateRestaurant(AddRestaurantViewModel viewModel)
         {
             if (!ModelState.IsValid) return View(viewModel);
 
@@ -55,7 +55,21 @@ namespace RR.Web.Controllers
 
             _restaurantService.AddRestaurant(restaurant);
 
-            return RedirectToAction("AddRestaurant");
+            return RedirectToAction("ListRestaurants");
+        }
+
+        [Route("Restaurant/Edit")]
+        [HttpPost]
+        public ActionResult EditRestaurant(RestaurantViewModel viewModel)
+        {
+            return View();
+        }
+
+        [Route("Restaurant/Delete")]
+        [HttpPost]
+        public ActionResult DeleteRestaurant(RestaurantViewModel viewModel)
+        {
+            return RedirectToAction("ListRestaurants");
         }
     }
 }

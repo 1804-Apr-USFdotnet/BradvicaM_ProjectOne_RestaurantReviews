@@ -132,6 +132,10 @@
       <Project>{835F9C96-55E9-456F-BB20-2F437B31202D}</Project>
       <Name>RR.ViewModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RR.Web\RR.Web.csproj">
+      <Project>{9314521C-D313-48F6-8973-49404F8A9B46}</Project>
+      <Name>RR.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

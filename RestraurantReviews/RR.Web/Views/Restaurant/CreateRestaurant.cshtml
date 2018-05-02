@@ -1,13 +1,13 @@
 ﻿@model RR.ViewModels.AddRestaurantViewModel
 
 @{
-    ViewBag.Title = "AddRestaurant";
+    ViewBag.Title = "CreateRestaurant";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>AddRestaurant</h2>
 
-@using (@Html.BeginForm("AddRestaurant", "Restaurant", FormMethod.Post))
+@using (@Html.BeginForm("CreateRestaurant", "Restaurant", FormMethod.Post))
 {
     @Html.ValidationSummary(true)
 

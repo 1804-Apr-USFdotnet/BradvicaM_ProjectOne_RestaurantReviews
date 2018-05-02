@@ -15,7 +15,7 @@
             <div class="card-body">
                 <h4 class="card-title">Add A Restaurant</h4>
                 <p class="card-text text-dark">Know of a restaurant that doesn't show up on our site?</p>
-                @Html.ActionLink("Add Restaurant", "AddRestaurant", "Restaurant", null, new {@class = "btn btn-dark"})
+                @Html.ActionLink("Add Restaurant", "CreateRestaurant", "Restaurant", null, new {@class = "btn btn-dark"})
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
             <div class="card-body">
                 <h4 class="card-title">Add A Review</h4>
                 <p class="card-text text-dark">Go somewhere yummy? Let people know about it.</p>
-                @Html.ActionLink("Add Review", "AddReview", "Review", null, new {@class = "btn btn-dark"})
+                @Html.ActionLink("Add Review", "ListRestaurants", "Restaurant", null, new {@class = "btn btn-dark"})
             </div>
         </div>
     </div>

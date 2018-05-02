@@ -3,11 +3,11 @@ using ApprovalTests.Reporters;
 using Autofac;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using RR.Console;
 using RR.DomainContracts;
 using RR.DomainServices;
 using RR.Models;
 using RR.RepositoryContracts;
+using RR.Web;
 
 namespace RR.Tests.DomainServices
 {
