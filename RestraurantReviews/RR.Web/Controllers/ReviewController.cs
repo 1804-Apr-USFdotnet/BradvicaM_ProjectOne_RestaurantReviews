@@ -1,5 +1,4 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using AutoMapper;
 using RR.DomainContracts;
 using RR.ViewModels;
@@ -19,16 +18,13 @@ namespace RR.Web.Controllers
             _mapper = mapper;
         }
 
-        //FIX THIS JUNK, USE CreateReviewViewModel, Dump viewdata.
         [Route("Review/New")]
         [HttpPost]
-        public ActionResult NewReview(Guid restaurantId)
+        public ActionResult NewReview(CreateReviewViewModel viewModel)
         {
-            ViewData["Id"] = restaurantId;
-            return View();
+            return View(viewModel);
         }
 
-        
         [Route("Review/Create")]
         [HttpPost]
         public ActionResult CreateReview(CreateReviewViewModel viewModel)

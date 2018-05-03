@@ -9,7 +9,7 @@
 
 @using (Html.BeginForm("CreateReview", "Review", FormMethod.Post))
 {
-    @Html.HiddenFor(x => x.RestaurantPublicId, new { Value = ViewData["Id"] })
+    @Html.HiddenFor(x => x.RestaurantPublicId, Model.RestaurantPublicId)
 
     <fieldset>
         <legend>Add Review</legend>

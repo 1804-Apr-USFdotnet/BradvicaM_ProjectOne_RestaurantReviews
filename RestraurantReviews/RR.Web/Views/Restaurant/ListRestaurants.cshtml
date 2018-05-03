@@ -1,5 +1,5 @@
 ﻿@using RR.ViewModels
-@model IEnumerable<RR.ViewModels.RestaurantViewModel>
+@model IEnumerable<RestaurantViewModel>
 
 @{
     ViewBag.Title = "ListRestaurants";
@@ -56,7 +56,7 @@
                 <td>
                     @using (Html.BeginForm("NewReview", "Review", FormMethod.Post))
                     {
-                        @Html.Hidden("restaurantId", i.PublicId)
+                        @Html.Hidden("viewModel.RestaurantPublicId", i.PublicId)
                         <input type="submit" class="text-dark" value="Review"/>
                     }
                 </td>
