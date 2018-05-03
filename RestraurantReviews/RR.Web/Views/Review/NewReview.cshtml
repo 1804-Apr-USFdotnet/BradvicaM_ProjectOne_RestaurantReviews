@@ -1,7 +1,7 @@
 ﻿@model RR.ViewModels.CreateReviewViewModel
 
 @{
-    ViewBag.Title = "AddReview";
+    ViewBag.Title = "NewReview";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -9,7 +9,7 @@
 
 @using (Html.BeginForm("CreateReview", "Review", FormMethod.Post))
 {
-    @Html.ValidationSummary(true)
+    @Html.HiddenFor(x => x.RestaurantPublicId, new { Value = ViewData["Id"] })
 
     <fieldset>
         <legend>Add Review</legend>
@@ -17,25 +17,21 @@
             @Html.LabelFor(x => x.ReviewerName) :
             <div>
                 @Html.EditorFor(x => x.ReviewerName, new { htmlAttributes = new { @class = "form-control", placeholder = "Your name..." } })
-                @Html.ValidationMessageFor(x => x.ReviewerName, null, new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(x => x.Rating) :
             <div>
                 @Html.EditorFor(x => x.Rating, new { htmlAttributes = new { @class = "form-control", placeholder = "Rating..." } })
-                @Html.ValidationMessageFor(x => x.Rating, null, new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(x => x.Comment) :
             <div>
                 @Html.EditorFor(x => x.Comment, new { htmlAttributes = new { @class = "form-control", placeholder = "Comments..." } })
-                @Html.ValidationMessageFor(x => x.Comment, null, new { @class = "text-danger" })
             </div>
         </div>
 
         <input type="submit" class="btn btn-light" value="Add Review" />
     </fieldset>
 }
-

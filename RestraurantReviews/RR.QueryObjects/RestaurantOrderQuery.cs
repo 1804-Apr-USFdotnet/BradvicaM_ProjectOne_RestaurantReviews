@@ -4,11 +4,11 @@ using RR.Models;
 
 namespace RR.QueryObjects
 {
-    public class FilterRestaurantsQuery
+    public class RestaurantOrderQuery
     {
         private readonly string _orderBy;
 
-        public FilterRestaurantsQuery(string orderBy)
+        public RestaurantOrderQuery(string orderBy)
         {
             _orderBy = orderBy;
         }

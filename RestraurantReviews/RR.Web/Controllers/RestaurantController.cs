@@ -47,7 +47,7 @@ namespace RR.Web.Controllers
 
         [Route("Restaurant/Add")]
         [HttpPost]
-        public ActionResult CreateRestaurant(AddRestaurantViewModel viewModel)
+        public ActionResult CreateRestaurant(CreateRestaurantViewModel viewModel)
         {
             if (!ModelState.IsValid) return View(viewModel);
 

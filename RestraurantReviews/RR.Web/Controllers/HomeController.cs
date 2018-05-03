@@ -26,7 +26,7 @@ namespace RR.Web.Controllers
 
         [Route("Home/Contact")]
         [HttpPost]
-        public ActionResult Contact(ContactViewModel viewModel)
+        public ActionResult Contact(CreateContactViewModel viewModel)
         {
             if (ModelState.IsValid)
             {

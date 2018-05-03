@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using AutoMapper;
 using RR.DomainContracts;
 using RR.ViewModels;
@@ -18,13 +19,26 @@ namespace RR.Web.Controllers
             _mapper = mapper;
         }
 
+        //FIX THIS JUNK, USE CreateReviewViewModel, Dump viewdata.
+        [Route("Review/New")]
+        [HttpPost]
+        public ActionResult NewReview(Guid restaurantId)
+        {
+            ViewData["Id"] = restaurantId;
+            return View();
+        }
+
+        
         [Route("Review/Create")]
         [HttpPost]
-        public ActionResult CreateReview(AddReviewViewModel viewModel)
+        public ActionResult CreateReview(CreateReviewViewModel viewModel)
         {
-            if (!ModelState.IsValid) return View(viewModel);
+            if (!ModelState.IsValid)
+            {
+                return View(viewModel);
+            }
 
-            return View();
+            return RedirectToAction("ListRestaurants", "Restaurant");    
         }
 
         [Route("Review/Edit")]

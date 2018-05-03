@@ -262,6 +262,7 @@
     <Content Include="Views\Restaurant\CreateRestaurant.cshtml" />
     <Content Include="Views\Review\CreateReview.cshtml" />
     <Content Include="Views\Restaurant\EditRestaurant.cshtml" />
+    <Content Include="Views\Review\NewReview.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

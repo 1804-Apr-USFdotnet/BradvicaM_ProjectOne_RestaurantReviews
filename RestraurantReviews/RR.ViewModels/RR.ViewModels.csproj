@@ -41,16 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddRestaurantViewModel.cs" />
-    <Compile Include="ContactViewModel.cs" />
+    <Compile Include="CreateRestaurantViewModel.cs" />
+    <Compile Include="CreateContactViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestaurantNameViewModel.cs" />
     <Compile Include="RestaurantViewModel.cs" />
-    <Compile Include="AddReviewViewModel.cs" />
+    <Compile Include="CreateReviewViewModel.cs" />
     <Compile Include="ReviewViewModel.cs" />
-    <Compile Include="TopRatedRestaurantViewModel.cs" />
-    <Compile Include="UpdateRestaurantViewModel.cs" />
-    <Compile Include="UpdateReviewViewModel.cs" />
+    <Compile Include="TopRatedRestaurantsViewModel.cs" />
+    <Compile Include="EditRestaurantViewModel.cs" />
+    <Compile Include="EditReviewViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RR.Models\RR.Models.csproj">

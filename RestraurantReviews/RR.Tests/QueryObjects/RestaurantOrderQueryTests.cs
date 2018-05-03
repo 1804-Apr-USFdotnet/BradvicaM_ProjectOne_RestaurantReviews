@@ -35,7 +35,7 @@ namespace RR.Tests.QueryObjects
         [TestMethod]
         public void AsExpression_OnName_ReturnsCorrectOrder()
         {
-            var query = new FilterRestaurantsQuery("name");
+            var query = new RestaurantOrderQuery("name");
 
             var result = query.AsExpression(_restaurants);
 
@@ -45,7 +45,7 @@ namespace RR.Tests.QueryObjects
         [TestMethod]
         public void AsExpression_OnCity_ReturnsCorrectOrder()
         {
-            var query = new FilterRestaurantsQuery("city");
+            var query = new RestaurantOrderQuery("city");
 
             var result = query.AsExpression(_restaurants);
 
@@ -55,7 +55,7 @@ namespace RR.Tests.QueryObjects
         [TestMethod]
         public void AsExpression_OnState_ReturnsCorrectOrder()
         {
-            var query = new FilterRestaurantsQuery("state");
+            var query = new RestaurantOrderQuery("state");
 
             var result = query.AsExpression(_restaurants);
 
@@ -65,7 +65,7 @@ namespace RR.Tests.QueryObjects
         [TestMethod]
         public void AsExpression_OnRating_ReturnsCorrectOrder()
         {
-            var query = new FilterRestaurantsQuery("rating");
+            var query = new RestaurantOrderQuery("rating");
 
             var result = query.AsExpression(_restaurants);
 
@@ -75,7 +75,7 @@ namespace RR.Tests.QueryObjects
         [TestMethod]
         public void AsExpression_Default_ReturnsCorrectOrder()
         {
-            var query = new FilterRestaurantsQuery("junk");
+            var query = new RestaurantOrderQuery("junk");
 
             var result = query.AsExpression(_restaurants);
 

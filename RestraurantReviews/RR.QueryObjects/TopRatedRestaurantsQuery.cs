@@ -4,7 +4,7 @@ using RR.Models;
 
 namespace RR.QueryObjects
 {
-    public class TopThreeRatingQuery
+    public class TopRatedRestaurantsQuery
     {
         private const int NumberOfRestaurants = 3;
 

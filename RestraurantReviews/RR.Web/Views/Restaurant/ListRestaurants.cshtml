@@ -10,7 +10,7 @@
 
 <div class="row mb-3">
     <div class="col">
-        @using (@Html.BeginForm("ListRestaurants", "Restaurant", FormMethod.Post))
+        @using (Html.BeginForm("ListRestaurants", "Restaurant", FormMethod.Post))
         {
             @Html.DropDownList("searchBy", new List<SelectListItem>
             {
@@ -54,8 +54,9 @@
                 <td>@i.PhoneNumber</td>
                 <td>@i.Website</td>
                 <td>
-                    @using (Html.BeginForm("CreateReview", "Review", FormMethod.Post, new AddReviewViewModel{RestaurantViewModel = i}))
+                    @using (Html.BeginForm("NewReview", "Review", FormMethod.Post))
                     {
+                        @Html.Hidden("restaurantId", i.PublicId)
                         <input type="submit" class="text-dark" value="Review"/>
                     }
                 </td>

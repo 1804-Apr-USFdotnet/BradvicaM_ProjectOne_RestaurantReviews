@@ -6,12 +6,12 @@ using RR.QueryObjects;
 namespace RR.Tests.QueryObjects
 {
     [TestClass]
-    public class TopThreeRatingQueryTests
+    public class TopRatedRestaurantsQueryTests
     {
         [TestMethod]
         public void AsExpression_Returns_CorrectRestaurants()
         {
-            var query = new TopThreeRatingQuery();
+            var query = new TopRatedRestaurantsQuery();
 
             var restaurantList = new List<Restaurant>
             {
@@ -33,7 +33,7 @@ namespace RR.Tests.QueryObjects
         [TestMethod]
         public void AsExpression_Returns_CorrectNumberOfRestaurants()
         {
-            var query = new TopThreeRatingQuery();
+            var query = new TopRatedRestaurantsQuery();
 
             var restaurantList = new List<Restaurant>
             {

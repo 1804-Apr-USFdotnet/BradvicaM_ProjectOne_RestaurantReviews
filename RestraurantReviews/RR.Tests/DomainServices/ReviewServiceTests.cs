@@ -33,23 +33,6 @@ namespace RR.Tests.DomainServices
         }
 
         [TestMethod]
-        [UseReporter(typeof(DiffReporter))]
-        public void AllReviews_GivenARestaurant_ReturnsCorrectReviews()
-        {
-            using (var container = Bootstrapper.RegisterTypes())
-            {
-                var reviewService = container.Resolve<IReviewService>();
-                var restaurantService = container.Resolve<IRestaurantService>();
-
-                var restaurant = restaurantService.AllRestaurants().FirstOrDefault();
-
-                var results = reviewService.AllReviews(restaurant);
-
-                Approvals.VerifyAll(results, "Restaurant Reviews:");
-            }
-        }
-
-        [TestMethod]
         public void AddReview_OnCall_CorrectlyAddReview()
         {
             var service = new ReviewService(_reviewRepo.Object, _restaurantRepo.Object);
@@ -82,14 +65,15 @@ namespace RR.Tests.DomainServices
         [UseReporter(typeof(DiffReporter))]
         public void GetByIndentifcation_GivenId_ReturnsCorrectReview()
         {
-            using (var container = Bootstrapper.RegisterTypes())
-            {
-                var reviewService = container.Resolve<IReviewService>();
+            //Move to Integration Tests!!!
+            //using (var container = Bootstrapper.RegisterTypes())
+            //{
+            //    var reviewService = container.Resolve<IReviewService>();
 
-                var result = reviewService.GetByIdentification(1);
+            //    var result = reviewService.GetById(Guid.Empty);
 
-                Approvals.Verify(result);
-            }
+            //    Approvals.Verify(result);
+            //}
         }
 
         [TestMethod]

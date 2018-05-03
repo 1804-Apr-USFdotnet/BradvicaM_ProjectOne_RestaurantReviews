@@ -7,6 +7,7 @@ namespace RR.Models
     public class Restaurant
     {
         public Guid RestaurantId { get; set; }
+        public Guid PublicId { get; set; }
         public string Name { get; set; }
         public string Street { get; set; }
         public string City { get; set; }

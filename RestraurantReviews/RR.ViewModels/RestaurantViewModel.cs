@@ -1,4 +1,6 @@
-﻿namespace RR.ViewModels
+﻿using System;
+
+namespace RR.ViewModels
 {
     public class RestaurantViewModel
     {
@@ -10,5 +12,6 @@
         public string PhoneNumber { get; set; }
         public double AverageRating { get; set; }
         public string Website { get; set; }
+        public Guid PublicId { get; set; }
     }
 }

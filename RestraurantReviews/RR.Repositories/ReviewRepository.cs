@@ -21,9 +21,9 @@ namespace RR.Repositories
             return _context.Reviews.Where(predicate);
         }
 
-        public IEnumerable<Review> GetAll()
+        public Review GetById(Guid publicId)
         {
-            return _context.Reviews;
+            return _context.Reviews.First(x => x.PublicId == publicId);
         }
 
         public void Add(Review review)

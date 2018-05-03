@@ -2,7 +2,7 @@
 
 namespace RR.ViewModels
 {
-    public class AddRestaurantViewModel
+    public class CreateRestaurantViewModel
     {
         [Required]
         public string Name { get; set; }

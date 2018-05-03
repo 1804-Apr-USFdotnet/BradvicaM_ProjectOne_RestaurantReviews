@@ -20,7 +20,7 @@ namespace RR.DomainServices
         {
             var resaurants = _restaurantRepository.GetAll();
 
-            var query = new TopThreeRatingQuery();
+            var query = new TopRatedRestaurantsQuery();
 
             return query.AsExpression(resaurants);
         }
@@ -53,7 +53,7 @@ namespace RR.DomainServices
         {
             var allRestaurants = _restaurantRepository.GetAll();
 
-            var query = new FilterRestaurantsQuery(orderBy);
+            var query = new RestaurantOrderQuery(orderBy);
 
             return query.AsExpression(allRestaurants);
         }

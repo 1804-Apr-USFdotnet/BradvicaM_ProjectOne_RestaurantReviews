@@ -2,7 +2,7 @@
 
 namespace RR.ViewModels
 {
-    public class ContactViewModel
+    public class CreateContactViewModel
     {
         [Required]
         public string Name { get; set; }

@@ -7,7 +7,7 @@ namespace RR.Repositories
     {
         public RestaurantReviewsContext() : base("name=RestaurantReviewsConnectionString")
         {
-            Database.SetInitializer<RestaurantReviewsContext>(new DatabaseInitializer());
+            Database.SetInitializer(new DatabaseInitializer());
         }
 
         public DbSet<Restaurant> Restaurants { get; set; }
