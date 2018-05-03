@@ -72,11 +72,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\RestaurantTests.cs" />
+    <Compile Include="Models\ReviewTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryObjects\TopRatedRestaurantsQueryTests.cs" />
+    <Compile Include="QueryObjects\PartialSearchQueryTests.cs" />
+    <Compile Include="QueryObjects\RestaurantOrderQueryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RR.Models\RR.Models.csproj">
+      <Project>{B28688C2-00EA-4362-AEF3-DDFCE26CA650}</Project>
+      <Name>RR.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RR.QueryObjects\RR.QueryObjects.csproj">
+      <Project>{DEA08DF4-0C7F-40F0-9FF9-1D9A8098CD64}</Project>
+      <Name>RR.QueryObjects</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DomainServices\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -40,7 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRestaurantRepository.cs" />
+    <Compile Include="IReviewRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RR.Models\RR.Models.csproj">
+      <Project>{B28688C2-00EA-4362-AEF3-DDFCE26CA650}</Project>
+      <Name>RR.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
