@@ -1,5 +1,4 @@
-﻿using System;
-using RR.DomainContracts;
+﻿using RR.DomainContracts;
 using RR.Models;
 using RR.RepositoryContracts;
 
@@ -14,19 +13,14 @@ namespace RR.DomainServices
             _reviewRepository = reviewRepository;
         }
 
-        public void CreateReview(Review review)
-        {
-            throw new NotImplementedException();
-        }
-
         public void UpdateReview(Review review)
         {
-            throw new NotImplementedException();
+            _reviewRepository.Update(review);
         }
 
         public void DeleteReview(Review review)
         {
-            throw new NotImplementedException();
+            _reviewRepository.Delete(review);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RR.DomainServices
+namespace RR.DomainContracts
 {
     public interface ILoggingService
     {

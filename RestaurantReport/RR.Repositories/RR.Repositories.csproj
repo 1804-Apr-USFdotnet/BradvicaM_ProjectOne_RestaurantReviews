@@ -47,11 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IRestaurantReportContext.cs" />
+    <Compile Include="DatabaseInitializer.cs" />
+    <Compile Include="IContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestaurantReportContext.cs" />
+    <Compile Include="RestaurantReportTestContext.cs" />
     <Compile Include="RestaurantRepository.cs" />
     <Compile Include="ReviewRepository.cs" />
+    <Compile Include="TestDatabaseInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -54,6 +54,9 @@
     <Reference Include="Autofac, Version=4.8.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.8.0\lib\net45\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
@@ -150,6 +153,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\Bootstrapper.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -251,6 +255,32 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RR.DomainContracts\RR.DomainContracts.csproj">
+      <Project>{CF04A273-6881-4D42-93E7-9425D9FE8D72}</Project>
+      <Name>RR.DomainContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RR.DomainServices\RR.DomainServices.csproj">
+      <Project>{F8EC1735-CBCA-4E65-8889-7663886C6B4F}</Project>
+      <Name>RR.DomainServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RR.Logging\RR.Logging.csproj">
+      <Project>{CF4F9267-9779-4029-A064-F045A3F875B1}</Project>
+      <Name>RR.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RR.Mapping\RR.Mapping.csproj">
+      <Project>{041F1F0C-DC31-422A-AB22-1ACDF5FF2944}</Project>
+      <Name>RR.Mapping</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RR.Repositories\RR.Repositories.csproj">
+      <Project>{02FC4743-6021-4F87-880E-DFA4764EB0F2}</Project>
+      <Name>RR.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RR.RepositoryContracts\RR.RepositoryContracts.csproj">
+      <Project>{288540DE-A160-45A9-B2FC-2BE8733F9E0B}</Project>
+      <Name>RR.RepositoryContracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -8,8 +8,10 @@ namespace RR.DomainContracts
     {
         List<Restaurant> TopThreeRatedRestaurants();
         List<Restaurant> PartialSearch(string searchTerm);
-        List<Restaurant> AllRestaurants(string orderPredicate);
-        Restaurant GetById(Guid restaurantId);
+        void ReviewRestaurant(Review review);
+        List<Restaurant> Get(string orderPredicate);
+        List<Restaurant> Get();
+        Restaurant Get(Guid restaurantId);
         void CreateRestaurant(Restaurant restaurant);
         void UpdateRestaurant(Restaurant restaurant);
         void DeleteRestaurant(Restaurant restaurant);

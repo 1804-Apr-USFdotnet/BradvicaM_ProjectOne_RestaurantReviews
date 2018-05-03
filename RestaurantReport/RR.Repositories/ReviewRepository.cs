@@ -8,9 +8,9 @@ namespace RR.Repositories
 {
     public class ReviewRepository : IReviewRepository
     {
-        private readonly IRestaurantReportContext _context;
+        private readonly IContext _context;
 
-        public ReviewRepository(IRestaurantReportContext context)
+        public ReviewRepository(IContext context)
         {
             _context = context;
         }

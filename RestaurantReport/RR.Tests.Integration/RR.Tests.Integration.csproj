@@ -38,6 +38,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.8.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.8.0\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.2.1\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
     </Reference>
@@ -45,13 +55,42 @@
       <HintPath>..\packages\MSTest.TestFramework.1.2.1\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DomainServices\RestaurantServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RR.DomainContracts\RR.DomainContracts.csproj">
+      <Project>{CF04A273-6881-4D42-93E7-9425D9FE8D72}</Project>
+      <Name>RR.DomainContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RR.DomainServices\RR.DomainServices.csproj">
+      <Project>{F8EC1735-CBCA-4E65-8889-7663886C6B4F}</Project>
+      <Name>RR.DomainServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RR.Models\RR.Models.csproj">
+      <Project>{B28688C2-00EA-4362-AEF3-DDFCE26CA650}</Project>
+      <Name>RR.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RR.Repositories\RR.Repositories.csproj">
+      <Project>{02FC4743-6021-4F87-880E-DFA4764EB0F2}</Project>
+      <Name>RR.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RR.RepositoryContracts\RR.RepositoryContracts.csproj">
+      <Project>{288540DE-A160-45A9-B2FC-2BE8733F9E0B}</Project>
+      <Name>RR.RepositoryContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RR.Web\RR.Web.csproj">
+      <Project>{2ED5C4D5-CF29-4FD0-8199-23AC2BB7D5C7}</Project>
+      <Name>RR.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
