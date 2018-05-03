@@ -9,15 +9,17 @@ namespace RR.QueryObjects
     public class PartialSearchQuery
     {
         private readonly string _value;
+        private readonly IEnumerable<Restaurant> _restaurants;
 
-        public PartialSearchQuery(string value)
+        public PartialSearchQuery(string value, IEnumerable<Restaurant> restaurants)
         {
             _value = value;
+            _restaurants = restaurants;
         }
 
-        public List<Restaurant> AsExpression(IEnumerable<Restaurant> restaurants)
+        public List<Restaurant> AsExpression()
         {
-            return (from x in restaurants
+            return (from x in _restaurants
                     where Regex.IsMatch(x.Name, _value)
                       || Regex.IsMatch(x.PhoneNumber, _value)
                       || Regex.IsMatch(x.Website, _value)

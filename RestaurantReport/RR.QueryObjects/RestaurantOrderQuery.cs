@@ -7,26 +7,28 @@ namespace RR.QueryObjects
     public class RestaurantOrderQuery
     {
         private readonly string _orderBy;
+        private readonly IEnumerable<Restaurant> _restaurants;
 
-        public RestaurantOrderQuery(string orderBy)
+        public RestaurantOrderQuery(string orderBy, IEnumerable<Restaurant> restaurants)
         {
             _orderBy = orderBy;
+            _restaurants = restaurants;
         }
 
-        public List<Restaurant> AsExpression(IEnumerable<Restaurant> restaurants)
+        public List<Restaurant> AsExpression()
         {
             switch (_orderBy.ToLower())
             {
                 case "name":
-                    return restaurants.OrderBy(x => x.Name).ToList();
+                    return _restaurants.OrderBy(x => x.Name).ToList();
                 case "city":
-                    return restaurants.OrderBy(x => x.City).ToList();
+                    return _restaurants.OrderBy(x => x.City).ToList();
                 case "state":
-                    return restaurants.OrderBy(x => x.State).ToList();
+                    return _restaurants.OrderBy(x => x.State).ToList();
                 case "rating":
-                    return restaurants.OrderByDescending(x => x.AverageRating).ToList();
+                    return _restaurants.OrderByDescending(x => x.AverageRating).ToList();
                 default:
-                    return restaurants.OrderBy(x => x.Name).ToList();
+                    return _restaurants.OrderBy(x => x.Name).ToList();
             }
         }
     }

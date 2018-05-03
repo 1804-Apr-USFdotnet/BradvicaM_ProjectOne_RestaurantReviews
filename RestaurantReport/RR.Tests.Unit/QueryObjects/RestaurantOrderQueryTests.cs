@@ -35,9 +35,9 @@ namespace RR.Tests.Unit.QueryObjects
         [TestMethod]
         public void AsExpression_OnName_ReturnsCorrectOrder()
         {
-            var query = new RestaurantOrderQuery("name");
+            var query = new RestaurantOrderQuery("name", _restaurants);
 
-            var result = query.AsExpression(_restaurants);
+            var result = query.AsExpression();
 
             Assert.IsTrue(result.First().Name == "Blah");
         }
@@ -45,9 +45,9 @@ namespace RR.Tests.Unit.QueryObjects
         [TestMethod]
         public void AsExpression_OnCity_ReturnsCorrectOrder()
         {
-            var query = new RestaurantOrderQuery("city");
+            var query = new RestaurantOrderQuery("city", _restaurants);
 
-            var result = query.AsExpression(_restaurants);
+            var result = query.AsExpression();
 
             Assert.IsTrue(result.First().City == "Kansas City");
         }
@@ -55,9 +55,9 @@ namespace RR.Tests.Unit.QueryObjects
         [TestMethod]
         public void AsExpression_OnState_ReturnsCorrectOrder()
         {
-            var query = new RestaurantOrderQuery("state");
+            var query = new RestaurantOrderQuery("state", _restaurants);
 
-            var result = query.AsExpression(_restaurants);
+            var result = query.AsExpression();
 
             Assert.IsTrue(result.First().State == "FL");
         }
@@ -65,9 +65,9 @@ namespace RR.Tests.Unit.QueryObjects
         [TestMethod]
         public void AsExpression_OnRating_ReturnsCorrectOrder()
         {
-            var query = new RestaurantOrderQuery("rating");
+            var query = new RestaurantOrderQuery("rating", _restaurants);
 
-            var result = query.AsExpression(_restaurants);
+            var result = query.AsExpression();
 
             Assert.IsTrue(result.First().Name == "NAA");
         }
@@ -75,9 +75,9 @@ namespace RR.Tests.Unit.QueryObjects
         [TestMethod]
         public void AsExpression_Default_ReturnsCorrectOrder()
         {
-            var query = new RestaurantOrderQuery("junk");
+            var query = new RestaurantOrderQuery("junk", _restaurants);
 
-            var result = query.AsExpression(_restaurants);
+            var result = query.AsExpression();
 
             Assert.IsTrue(result.First().Name == "Blah");
         }

@@ -53,6 +53,10 @@
       <Project>{B28688C2-00EA-4362-AEF3-DDFCE26CA650}</Project>
       <Name>RR.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RR.QueryObjects\RR.QueryObjects.csproj">
+      <Project>{DEA08DF4-0C7F-40F0-9FF9-1D9A8098CD64}</Project>
+      <Name>RR.QueryObjects</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RR.RepositoryContracts\RR.RepositoryContracts.csproj">
       <Project>{288540DE-A160-45A9-B2FC-2BE8733F9E0B}</Project>
       <Name>RR.RepositoryContracts</Name>

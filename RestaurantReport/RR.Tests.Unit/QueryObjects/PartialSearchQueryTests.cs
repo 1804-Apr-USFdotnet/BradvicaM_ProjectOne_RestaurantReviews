@@ -14,10 +14,6 @@ namespace RR.Tests.Unit.QueryObjects
         [TestMethod]
         public void AsExpression_Returns_RestaurntWithMatchingString()
         {
-            const string queryValue = "bobby";
-
-            var query = new PartialSearchQuery(queryValue);
-
             _restaurants = new List<Restaurant>
             {
                 new Restaurant
@@ -46,7 +42,11 @@ namespace RR.Tests.Unit.QueryObjects
                 }
             };
 
-            var results = query.AsExpression(_restaurants);
+            const string queryValue = "bobby";
+
+            var query = new PartialSearchQuery(queryValue, _restaurants);
+
+            var results = query.AsExpression();
 
             Assert.IsTrue(results.Count == 1);
         }
@@ -54,10 +54,6 @@ namespace RR.Tests.Unit.QueryObjects
         [TestMethod]
         public void AsExpression_DoesNotReturn_RestaurantWithNoMatchingString()
         {
-            const string queryValue = "MO";
-
-            var query = new PartialSearchQuery(queryValue);
-
             _restaurants = new List<Restaurant>
             {
                 new Restaurant
@@ -86,7 +82,11 @@ namespace RR.Tests.Unit.QueryObjects
                 }
             };
 
-            var results = query.AsExpression(_restaurants);
+            const string queryValue = "MO";
+
+            var query = new PartialSearchQuery(queryValue, _restaurants);
+
+            var results = query.AsExpression();
 
             Assert.IsTrue(results.Count == 2);
         }
