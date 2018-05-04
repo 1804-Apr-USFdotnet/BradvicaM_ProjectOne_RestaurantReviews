@@ -66,10 +66,7 @@ namespace RR.Tests.Unit.Web
 
             var result = controller.Contact(new CreateContactViewModel()) as ViewResult;
 
-            
-
-            Assert.IsNotNull(result);
-            //Assert.AreEqual("Contact", result.ViewName);
+            Assert.AreEqual("Contact", result.ViewName);
         }
     }
 }

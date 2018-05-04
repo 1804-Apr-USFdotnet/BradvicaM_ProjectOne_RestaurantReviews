@@ -47,6 +47,7 @@
     <Reference Include="ApprovalUtilities, Version=3.0.0.0, Culture=neutral, PublicKeyToken=11bd7d124fc62e0f, processorArchitecture=MSIL">
       <HintPath>..\packages\ApprovalUtilities.3.0.14\lib\net45\ApprovalUtilities.dll</HintPath>
     </Reference>
+    <Reference Include="Autofac, Version=4.8.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da" />
     <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
@@ -66,6 +67,9 @@
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.2.1\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
     <Reference Include="Moq, Version=4.8.0.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.8.2\lib\net45\Moq.dll</HintPath>
     </Reference>
@@ -83,7 +87,24 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Mvc, Version=5.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.5\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.5\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.5\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.5\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.5\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.5\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DomainServices\RestaurantServiceTests.cs" />
@@ -96,12 +117,17 @@
     <Compile Include="QueryObjects\PartialSearchQueryTests.cs" />
     <Compile Include="QueryObjects\RestaurantOrderQueryTests.cs" />
     <Compile Include="Web\HomeControllerTests.cs" />
+    <Compile Include="Web\RestaurantControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RR.DomainContracts\RR.DomainContracts.csproj">
+      <Project>{CF04A273-6881-4D42-93E7-9425D9FE8D72}</Project>
+      <Name>RR.DomainContracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RR.DomainServices\RR.DomainServices.csproj">
       <Project>{F8EC1735-CBCA-4E65-8889-7663886C6B4F}</Project>
       <Name>RR.DomainServices</Name>

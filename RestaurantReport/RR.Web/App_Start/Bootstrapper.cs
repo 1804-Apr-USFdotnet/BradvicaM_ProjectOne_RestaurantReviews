@@ -25,7 +25,7 @@ namespace RR.Web
             var mapper = mapperConfiguration.CreateMapper();
 
             //EntityFramework Context
-            builder.RegisterType<RestaurantReportContext>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<RestaurantReportContext>().As<IContext>().InstancePerLifetimeScope();
 
             //Automapper
             builder.RegisterInstance(mapper).As<IMapper>();

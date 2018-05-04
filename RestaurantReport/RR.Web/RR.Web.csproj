@@ -245,6 +245,8 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Restaurant\ListRestaurants.cshtml" />
+    <Content Include="Views\Restaurant\OrderRestaurants.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -274,6 +276,10 @@
       <Project>{041F1F0C-DC31-422A-AB22-1ACDF5FF2944}</Project>
       <Name>RR.Mapping</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RR.Models\RR.Models.csproj">
+      <Project>{B28688C2-00EA-4362-AEF3-DDFCE26CA650}</Project>
+      <Name>RR.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RR.Repositories\RR.Repositories.csproj">
       <Project>{02FC4743-6021-4F87-880E-DFA4764EB0F2}</Project>
       <Name>RR.Repositories</Name>
@@ -288,7 +294,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Restaurant\" />
     <Folder Include="Views\Review\" />
   </ItemGroup>
   <PropertyGroup>

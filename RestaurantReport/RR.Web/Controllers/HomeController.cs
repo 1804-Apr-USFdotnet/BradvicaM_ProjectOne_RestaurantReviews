@@ -33,7 +33,7 @@ namespace RR.Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(viewModel);
+            return View("Contact", viewModel);
         }
     }
 }
