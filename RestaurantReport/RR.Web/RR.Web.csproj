@@ -158,6 +158,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RestaurantController.cs" />
+    <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -230,7 +232,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
@@ -281,6 +282,14 @@
       <Project>{288540DE-A160-45A9-B2FC-2BE8733F9E0B}</Project>
       <Name>RR.RepositoryContracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RR.ViewModels\RR.ViewModels.csproj">
+      <Project>{7f551e33-9409-45b4-be54-c451bd62ab21}</Project>
+      <Name>RR.ViewModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Restaurant\" />
+    <Folder Include="Views\Review\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

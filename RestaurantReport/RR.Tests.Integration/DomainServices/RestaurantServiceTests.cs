@@ -151,14 +151,63 @@ namespace RR.Tests.Integration.DomainServices
         [TestMethod]
         public void DeleteRestaurant_GivenRestuarnt_DeletesRestuarnt()
         {
-            throw new NotImplementedException();
+            var restaurant = new Restaurant
+            {
+                Id = Guid.NewGuid(),
+                RestaurantId = Guid.NewGuid()
+            };
+
+            _testContext.Restaurants.Add(restaurant);
+            _testContext.SaveChanges();
+
+            _restaurantService.DeleteRestaurant(restaurant);
+
+            var restaurants = _restaurantService.Get();
+
+            Assert.IsFalse(restaurants.Contains(restaurant));
         }
 
         [TestMethod]
         [UseReporter(typeof(DiffReporter))]
         public void UpdateRestaurant_GivenResturant_UpdatesRestaurant()
         {
-            throw new NotImplementedException();
+            var beforeUpdate = new Restaurant
+            {
+                Id = Guid.Parse("638f64c0-3b0c-442d-808e-9a71673e6ec7"),
+                RestaurantId = Guid.Parse("14534a44-add2-40ef-a173-f5d321b7d2d2"),
+                Name = "Mikes",
+                AverageRating = 5.0,
+                City = "Tampa",
+                PhoneNumber = "1823241231",
+                State = "FL",
+                Street = "123 Me St.",
+                ZipCode = 12345,
+                Website = "www.mikes.com"
+            };
+
+            _testContext.Restaurants.RemoveRange(_testContext.Restaurants);
+            _testContext.Restaurants.Add(beforeUpdate);
+            _testContext.SaveChanges();
+
+            var afterUpdate = new Restaurant
+            {
+                Id = beforeUpdate.Id,
+                RestaurantId = beforeUpdate.RestaurantId,
+                Name = "John",
+                AverageRating = 8.0,
+                City = "Claremont",
+                PhoneNumber = "1234567891",
+                State = "CA",
+                Street = "756 You Dr.",
+                ZipCode = 11415,
+                Website = "www.sfs.com"
+            };
+
+            _restaurantService.UpdateRestaurant(afterUpdate);
+
+            var result = _restaurantService.Get(beforeUpdate.RestaurantId);
+
+            Approvals.Verify(result);
         }
     }
 }

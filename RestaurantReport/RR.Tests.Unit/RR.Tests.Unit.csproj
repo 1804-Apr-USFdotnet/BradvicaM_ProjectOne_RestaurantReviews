@@ -82,6 +82,8 @@
       <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net47\System.ValueTuple.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=5.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DomainServices\RestaurantServiceTests.cs" />
@@ -93,6 +95,7 @@
     <Compile Include="QueryObjects\TopRatedRestaurantsQueryTests.cs" />
     <Compile Include="QueryObjects\PartialSearchQueryTests.cs" />
     <Compile Include="QueryObjects\RestaurantOrderQueryTests.cs" />
+    <Compile Include="Web\HomeControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -122,6 +125,14 @@
     <ProjectReference Include="..\RR.RepositoryContracts\RR.RepositoryContracts.csproj">
       <Project>{288540DE-A160-45A9-B2FC-2BE8733F9E0B}</Project>
       <Name>RR.RepositoryContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RR.ViewModels\RR.ViewModels.csproj">
+      <Project>{7F551E33-9409-45B4-BE54-C451BD62AB21}</Project>
+      <Name>RR.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RR.Web\RR.Web.csproj">
+      <Project>{2ED5C4D5-CF29-4FD0-8199-23AC2BB7D5C7}</Project>
+      <Name>RR.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
