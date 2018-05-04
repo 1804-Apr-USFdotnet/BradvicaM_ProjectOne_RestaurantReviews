@@ -40,7 +40,18 @@
         </div>
     </div>
     <div class="col">
-
+        <div class="card">
+            <img class="card-img-top" src="~/Content/Images/restaurantImage4.jpg" atl="Card image cap" />
+            <div class="card-body">
+                <h4 class="card-title">Search</h4>
+                <p class="card-text text-dark">Search for a restaurant.</p>
+                @using (Html.BeginForm("RestaurantSearch", "Restaurant", FormMethod.Post))
+                {
+                    @Html.TextBox("searchTerm", null , new { htmlAttributes = new { placeholder = "Search term..." }})
+                    <input type="submit" class="text-light btn btn-dark" value="See Details" />
+                }
+            </div>
+        </div>
     </div>
 </div>
 

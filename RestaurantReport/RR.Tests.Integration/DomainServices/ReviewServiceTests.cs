@@ -27,8 +27,8 @@ namespace RR.Tests.Integration.DomainServices
         {
             var beforeUpdate = new Review
             {
-                ReviewId = Guid.Parse("ec6b66f8-c116-4ed5-ba00-bd0d72edabd7"),
-                Id = Guid.Parse("f02ef066-251e-4f90-b404-eb09ab06ec93"),
+                ReviewPublicId = Guid.Parse("ec6b66f8-c116-4ed5-ba00-bd0d72edabd7"),
+                ReviewId = Guid.Parse("f02ef066-251e-4f90-b404-eb09ab06ec93"),
                 Restaurant = _testContext.Restaurants.First(),
                 ReviewerName = "John",
                 Rating = 5.0,
@@ -41,8 +41,8 @@ namespace RR.Tests.Integration.DomainServices
 
             var afterUpdate = new Review
             {
+                ReviewPublicId = beforeUpdate.ReviewPublicId,
                 ReviewId = beforeUpdate.ReviewId,
-                Id = beforeUpdate.Id,
                 Restaurant = beforeUpdate.Restaurant,
                 RestaurantId = beforeUpdate.RestaurantId,
                 ReviewerName = "Matt",
@@ -52,7 +52,7 @@ namespace RR.Tests.Integration.DomainServices
 
             _reviewService.UpdateReview(afterUpdate);
 
-            var result = _testContext.Reviews.Find(beforeUpdate.Id);
+            var result = _testContext.Reviews.Find(beforeUpdate.ReviewId);
 
             Approvals.Verify(result);
         }
@@ -62,8 +62,8 @@ namespace RR.Tests.Integration.DomainServices
         {
             var review = new Review
             {
+                ReviewPublicId = Guid.NewGuid(),
                 ReviewId = Guid.NewGuid(),
-                Id = Guid.NewGuid(),
                 Restaurant = _testContext.Restaurants.First()
             };
 

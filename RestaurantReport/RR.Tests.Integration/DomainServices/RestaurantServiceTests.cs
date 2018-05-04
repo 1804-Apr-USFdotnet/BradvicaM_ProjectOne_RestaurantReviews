@@ -32,14 +32,14 @@ namespace RR.Tests.Integration.DomainServices
                 Comment = "junk comment",
                 Rating = 5.0,
                 ReviewerName = "mike",
-                Id = Guid.NewGuid(),
                 ReviewId = Guid.NewGuid(),
+                ReviewPublicId = Guid.NewGuid(),
                 Restaurant = restaurant
             };
 
             _restaurantService.ReviewRestaurant(review);
 
-            var sameRestaurant = _restaurantService.Get(restaurant.RestaurantId);
+            var sameRestaurant = _restaurantService.Get(restaurant.RestaurantPublicId);
 
             Assert.IsTrue(sameRestaurant.Reviews.Contains(review));
         }
@@ -49,7 +49,7 @@ namespace RR.Tests.Integration.DomainServices
         {
             var restaurant = _restaurantService.Get().First();
 
-            var restaurantById = _restaurantService.Get(restaurant.RestaurantId);
+            var restaurantById = _restaurantService.Get(restaurant.RestaurantPublicId);
 
             Assert.AreEqual(restaurantById, restaurant);
         }
@@ -57,9 +57,9 @@ namespace RR.Tests.Integration.DomainServices
         [TestMethod]
         public void Get_NoParameters_ReturnsAllRestaurants()
         {
-            var first = new Restaurant { Id = Guid.NewGuid(), RestaurantId = Guid.NewGuid(), AverageRating = 10 };
-            var second = new Restaurant { Id = Guid.NewGuid(), RestaurantId = Guid.NewGuid(), AverageRating = 10 };
-            var third = new Restaurant { Id = Guid.NewGuid(), RestaurantId = Guid.NewGuid(), AverageRating = 10 };
+            var first = new Restaurant { RestaurantId = Guid.NewGuid(), RestaurantPublicId = Guid.NewGuid(), AverageRating = 10 };
+            var second = new Restaurant { RestaurantId = Guid.NewGuid(), RestaurantPublicId = Guid.NewGuid(), AverageRating = 10 };
+            var third = new Restaurant { RestaurantId = Guid.NewGuid(), RestaurantPublicId = Guid.NewGuid(), AverageRating = 10 };
 
             _testContext.Restaurants.RemoveRange(_testContext.Restaurants);
             _restaurantService.CreateRestaurant(first);
@@ -76,10 +76,10 @@ namespace RR.Tests.Integration.DomainServices
         [TestMethod]
         public void TopThreeRatedRestaurants_OnCall_ReturnsCorrectRestaurants()
         {
-            var first = new Restaurant { Id = Guid.NewGuid(), RestaurantId = Guid.NewGuid(), AverageRating = 10};
-            var second = new Restaurant { Id = Guid.NewGuid(), RestaurantId = Guid.NewGuid(), AverageRating = 10 };
-            var third = new Restaurant { Id = Guid.NewGuid(), RestaurantId = Guid.NewGuid(), AverageRating = 10 };
-            var fourth = new Restaurant { Id = Guid.NewGuid(), RestaurantId = Guid.NewGuid(), AverageRating = 9 };
+            var first = new Restaurant { RestaurantId = Guid.NewGuid(), RestaurantPublicId = Guid.NewGuid(), AverageRating = 10};
+            var second = new Restaurant { RestaurantId = Guid.NewGuid(), RestaurantPublicId = Guid.NewGuid(), AverageRating = 10 };
+            var third = new Restaurant { RestaurantId = Guid.NewGuid(), RestaurantPublicId = Guid.NewGuid(), AverageRating = 10 };
+            var fourth = new Restaurant { RestaurantId = Guid.NewGuid(), RestaurantPublicId = Guid.NewGuid(), AverageRating = 9 };
 
             _testContext.Restaurants.RemoveRange(_testContext.Restaurants);
             _restaurantService.CreateRestaurant(first);
@@ -97,7 +97,7 @@ namespace RR.Tests.Integration.DomainServices
         [TestMethod]
         public void CreateRestaurants_GivenRestaurant_AddsRestaurants()
         {
-            var restaurant = new Restaurant{Id = Guid.NewGuid(), RestaurantId = Guid.NewGuid()};
+            var restaurant = new Restaurant{RestaurantId = Guid.NewGuid(), RestaurantPublicId = Guid.NewGuid()};
 
             _restaurantService.CreateRestaurant(restaurant);
 
@@ -112,10 +112,10 @@ namespace RR.Tests.Integration.DomainServices
         {
             var restuarants = new List<Restaurant>
             {
-                new Restaurant{Id = Guid.Parse("5b88c6f9-d35f-4d93-acbe-cc07332024b1"), RestaurantId = Guid.Parse("61cbecb3-2b93-4349-b0b7-4ce6683acc8d"), AverageRating = 9, Name = "Mike", State = "FL", Street = "123 billy St.", ZipCode = 18172, PhoneNumber = "123412312", Website = "www.hithere.com", City = "Tampa"},
-                new Restaurant{Id = Guid.Parse("356cc721-6be7-48e2-9c28-e6904a853259"), RestaurantId = Guid.Parse("391b7184-caa9-4f1f-b442-424bae920fa0"), AverageRating = 9, Name = "Jake", State = "FL", Street = "123 Me St.", ZipCode = 18172, PhoneNumber = "123412312", Website = "www.hithere.com", City = "Tampa"},
-                new Restaurant{Id = Guid.Parse("a855a758-e250-446d-911d-c603296a77c1"), RestaurantId = Guid.Parse("c369c4b0-a334-4d27-9f79-585c2af86fcb"), AverageRating = 9, Name = "Abe", State = "FL", Street = "123 Me St.", ZipCode = 18172, PhoneNumber = "123412312", Website = "www.hithere.com", City = "Tampa"},
-                new Restaurant{Id = Guid.Parse("c11d9615-b4f2-41c4-b23f-030a13389093"), RestaurantId = Guid.Parse("dc8575ca-7282-417b-881a-8e78aa1a9cf6"), AverageRating = 4, Name = "Frank", State = "billy", Street = "123 Me St.", ZipCode = 18172, PhoneNumber = "123412312", Website = "www.hithere.com", City = "Tampa"}
+                new Restaurant{RestaurantId = Guid.Parse("5b88c6f9-d35f-4d93-acbe-cc07332024b1"), RestaurantPublicId = Guid.Parse("61cbecb3-2b93-4349-b0b7-4ce6683acc8d"), AverageRating = 9, Name = "Mike", State = "FL", Street = "123 billy St.", ZipCode = 18172, PhoneNumber = "123412312", Website = "www.hithere.com", City = "Tampa"},
+                new Restaurant{RestaurantId = Guid.Parse("356cc721-6be7-48e2-9c28-e6904a853259"), RestaurantPublicId = Guid.Parse("391b7184-caa9-4f1f-b442-424bae920fa0"), AverageRating = 9, Name = "Jake", State = "FL", Street = "123 Me St.", ZipCode = 18172, PhoneNumber = "123412312", Website = "www.hithere.com", City = "Tampa"},
+                new Restaurant{RestaurantId = Guid.Parse("a855a758-e250-446d-911d-c603296a77c1"), RestaurantPublicId = Guid.Parse("c369c4b0-a334-4d27-9f79-585c2af86fcb"), AverageRating = 9, Name = "Abe", State = "FL", Street = "123 Me St.", ZipCode = 18172, PhoneNumber = "123412312", Website = "www.hithere.com", City = "Tampa"},
+                new Restaurant{RestaurantId = Guid.Parse("c11d9615-b4f2-41c4-b23f-030a13389093"), RestaurantPublicId = Guid.Parse("dc8575ca-7282-417b-881a-8e78aa1a9cf6"), AverageRating = 4, Name = "Frank", State = "billy", Street = "123 Me St.", ZipCode = 18172, PhoneNumber = "123412312", Website = "www.hithere.com", City = "Tampa"}
             };
 
             _testContext.Restaurants.RemoveRange(_testContext.Restaurants);
@@ -133,10 +133,10 @@ namespace RR.Tests.Integration.DomainServices
         {
             var restuarants = new List<Restaurant>
             {
-                new Restaurant{Id = Guid.Parse("5b88c6f9-d35f-4d93-acbe-cc07332024b1"), RestaurantId = Guid.Parse("61cbecb3-2b93-4349-b0b7-4ce6683acc8d"), AverageRating = 9, Name = "Mike", State = "FL", Street = "123 billy St.", ZipCode = 18172, PhoneNumber = "123412312", Website = "www.hithere.com", City = "Tampa"},
-                new Restaurant{Id = Guid.Parse("356cc721-6be7-48e2-9c28-e6904a853259"), RestaurantId = Guid.Parse("391b7184-caa9-4f1f-b442-424bae920fa0"), AverageRating = 9, Name = "Jake", State = "FL", Street = "123 Me St.", ZipCode = 18172, PhoneNumber = "123412312", Website = "www.hithere.com", City = "Tampa"},
-                new Restaurant{Id = Guid.Parse("a855a758-e250-446d-911d-c603296a77c1"), RestaurantId = Guid.Parse("c369c4b0-a334-4d27-9f79-585c2af86fcb"), AverageRating = 9, Name = "Abe", State = "FL", Street = "123 Me St.", ZipCode = 18172, PhoneNumber = "123412312", Website = "www.hithere.com", City = "Tampa"},
-                new Restaurant{Id = Guid.Parse("c11d9615-b4f2-41c4-b23f-030a13389093"), RestaurantId = Guid.Parse("dc8575ca-7282-417b-881a-8e78aa1a9cf6"), AverageRating = 4, Name = "Frank", State = "billy", Street = "123 Me St.", ZipCode = 18172, PhoneNumber = "123412312", Website = "www.hithere.com", City = "Tampa"}
+                new Restaurant{RestaurantId = Guid.Parse("5b88c6f9-d35f-4d93-acbe-cc07332024b1"), RestaurantPublicId = Guid.Parse("61cbecb3-2b93-4349-b0b7-4ce6683acc8d"), AverageRating = 9, Name = "Mike", State = "FL", Street = "123 billy St.", ZipCode = 18172, PhoneNumber = "123412312", Website = "www.hithere.com", City = "Tampa"},
+                new Restaurant{RestaurantId = Guid.Parse("356cc721-6be7-48e2-9c28-e6904a853259"), RestaurantPublicId = Guid.Parse("391b7184-caa9-4f1f-b442-424bae920fa0"), AverageRating = 9, Name = "Jake", State = "FL", Street = "123 Me St.", ZipCode = 18172, PhoneNumber = "123412312", Website = "www.hithere.com", City = "Tampa"},
+                new Restaurant{RestaurantId = Guid.Parse("a855a758-e250-446d-911d-c603296a77c1"), RestaurantPublicId = Guid.Parse("c369c4b0-a334-4d27-9f79-585c2af86fcb"), AverageRating = 9, Name = "Abe", State = "FL", Street = "123 Me St.", ZipCode = 18172, PhoneNumber = "123412312", Website = "www.hithere.com", City = "Tampa"},
+                new Restaurant{RestaurantId = Guid.Parse("c11d9615-b4f2-41c4-b23f-030a13389093"), RestaurantPublicId = Guid.Parse("dc8575ca-7282-417b-881a-8e78aa1a9cf6"), AverageRating = 4, Name = "Frank", State = "billy", Street = "123 Me St.", ZipCode = 18172, PhoneNumber = "123412312", Website = "www.hithere.com", City = "Tampa"}
             };
 
             _testContext.Restaurants.RemoveRange(_testContext.Restaurants);
@@ -153,8 +153,8 @@ namespace RR.Tests.Integration.DomainServices
         {
             var restaurant = new Restaurant
             {
-                Id = Guid.NewGuid(),
-                RestaurantId = Guid.NewGuid()
+                RestaurantId = Guid.NewGuid(),
+                RestaurantPublicId = Guid.NewGuid()
             };
 
             _testContext.Restaurants.Add(restaurant);
@@ -173,8 +173,8 @@ namespace RR.Tests.Integration.DomainServices
         {
             var beforeUpdate = new Restaurant
             {
-                Id = Guid.Parse("638f64c0-3b0c-442d-808e-9a71673e6ec7"),
-                RestaurantId = Guid.Parse("14534a44-add2-40ef-a173-f5d321b7d2d2"),
+                RestaurantId = Guid.Parse("638f64c0-3b0c-442d-808e-9a71673e6ec7"),
+                RestaurantPublicId = Guid.Parse("14534a44-add2-40ef-a173-f5d321b7d2d2"),
                 Name = "Mikes",
                 AverageRating = 5.0,
                 City = "Tampa",
@@ -191,8 +191,8 @@ namespace RR.Tests.Integration.DomainServices
 
             var afterUpdate = new Restaurant
             {
-                Id = beforeUpdate.Id,
                 RestaurantId = beforeUpdate.RestaurantId,
+                RestaurantPublicId = beforeUpdate.RestaurantPublicId,
                 Name = "John",
                 AverageRating = 8.0,
                 City = "Claremont",
@@ -205,7 +205,7 @@ namespace RR.Tests.Integration.DomainServices
 
             _restaurantService.UpdateRestaurant(afterUpdate);
 
-            var result = _restaurantService.Get(beforeUpdate.RestaurantId);
+            var result = _restaurantService.Get(beforeUpdate.RestaurantPublicId);
 
             Approvals.Verify(result);
         }

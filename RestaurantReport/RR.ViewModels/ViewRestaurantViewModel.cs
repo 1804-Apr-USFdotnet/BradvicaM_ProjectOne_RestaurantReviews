@@ -4,7 +4,7 @@ namespace RR.ViewModels
 {
     public class ViewRestaurantViewModel
     {
-        public Guid RestaurantId { get; set; }
+        public Guid RestaurantPublicId { get; set; }
         public string Name { get; set; }
         public string Street { get; set; }
         public string City { get; set; }

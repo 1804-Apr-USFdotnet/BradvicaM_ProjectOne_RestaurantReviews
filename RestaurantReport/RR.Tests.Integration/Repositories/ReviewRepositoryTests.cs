@@ -26,15 +26,15 @@ namespace RR.Tests.Integration.Repositories
         {
             var review = new Review
             {
-                Id = Guid.NewGuid(),
                 ReviewId = Guid.NewGuid(),
+                ReviewPublicId = Guid.NewGuid(),
                 Restaurant = _testContext.Restaurants.First()
             };
 
             _testContext.Reviews.Add(review);
             _testContext.SaveChanges();
 
-            var result = _reviewRepository.GetById(review.ReviewId);
+            var result = _reviewRepository.GetById(review.ReviewPublicId);
 
             Assert.AreEqual(review, result);
         }
@@ -46,20 +46,20 @@ namespace RR.Tests.Integration.Repositories
             {
                 new Review
                 {
-                    Id = Guid.NewGuid(),
                     ReviewId = Guid.NewGuid(),
+                    ReviewPublicId = Guid.NewGuid(),
                     Restaurant = _testContext.Restaurants.First()
                 },
                 new Review
                 {
-                    Id = Guid.NewGuid(),
                     ReviewId = Guid.NewGuid(),
+                    ReviewPublicId = Guid.NewGuid(),
                     Restaurant = _testContext.Restaurants.First()
                 },
                 new Review
                 {
-                    Id = Guid.NewGuid(),
                     ReviewId = Guid.NewGuid(),
+                    ReviewPublicId = Guid.NewGuid(),
                     Restaurant = _testContext.Restaurants.First()
                 },
             };
@@ -80,8 +80,8 @@ namespace RR.Tests.Integration.Repositories
         {
             var review = new Review
             {
-                Id = Guid.NewGuid(),
                 ReviewId = Guid.NewGuid(),
+                ReviewPublicId = Guid.NewGuid(),
                 Restaurant = _testContext.Restaurants.First()
             };
 
@@ -99,8 +99,8 @@ namespace RR.Tests.Integration.Repositories
         {
             var beforeUpdate = new Review
             {
-                Id = Guid.Parse("4dc863f3-88da-4d3b-958c-ab585a116b9c"),
-                ReviewId = Guid.Parse("e5398119-bcc0-4952-a177-2d7aec86fcb5"),
+                ReviewId = Guid.Parse("4dc863f3-88da-4d3b-958c-ab585a116b9c"),
+                ReviewPublicId = Guid.Parse("e5398119-bcc0-4952-a177-2d7aec86fcb5"),
                 Restaurant = _testContext.Restaurants.First(),
                 ReviewerName = "Mike",
                 Comment = "Ok-ish",
@@ -113,18 +113,18 @@ namespace RR.Tests.Integration.Repositories
 
             var afterUpdate = new Review
             {
-                Id = beforeUpdate.Id,
+                ReviewId = beforeUpdate.ReviewId,
                 ReviewerName = "John",
                 Comment = "It was bad",
                 Rating = 1.30,
-                ReviewId = beforeUpdate.ReviewId,
+                ReviewPublicId = beforeUpdate.ReviewPublicId,
                 Restaurant = beforeUpdate.Restaurant,
                 RestaurantId = beforeUpdate.RestaurantId
             };
 
             _reviewRepository.Update(afterUpdate);
 
-            var result = _reviewRepository.GetById(beforeUpdate.ReviewId);
+            var result = _reviewRepository.GetById(beforeUpdate.ReviewPublicId);
 
             Approvals.Verify(result);
         }

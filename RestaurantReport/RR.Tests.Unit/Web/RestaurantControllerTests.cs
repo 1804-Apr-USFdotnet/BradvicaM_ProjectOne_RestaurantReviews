@@ -22,6 +22,10 @@ namespace RR.Tests.Unit.Web
         {
             var restaurantService = new Mock<IRestaurantService>();
             restaurantService.Setup(x => x.Get()).Returns(new List<Restaurant> {new Restaurant()});
+            restaurantService.Setup(x => x.Get(It.IsAny<Guid>())).Returns(new Restaurant{Reviews = new List<Review>()});
+            restaurantService.Setup(x => x.TopThreeRatedRestaurants()).Returns(new List<Restaurant> {new Restaurant()});
+            restaurantService.Setup(x => x.PartialSearch(It.IsAny<string>())).Returns(new List<Restaurant> {new Restaurant()});
+            restaurantService.Setup(x => x.CreateRestaurant(It.IsAny<Restaurant>()));
 
             var container = Bootstrapper.RegisterTypes();
             var mapper = container.Resolve<IMapper>();
@@ -77,7 +81,7 @@ namespace RR.Tests.Unit.Web
         }
 
         [TestMethod]
-        public void TopRatedRestuarants_OnPostViewModel_ReturnsCorrectViewModel()
+        public void TopRatedRestaurants_OnCall_ReturnsCorrectViewModel()
         {
             var result = _controller.TopRatedRestaurants() as ViewResult;
 
@@ -98,6 +102,75 @@ namespace RR.Tests.Unit.Web
             var result = _controller.RestaurantDetails(Guid.NewGuid()) as ViewResult;
 
             Assert.IsInstanceOfType(result.Model, typeof(ViewRestaurantViewModel));
+        }
+
+        [TestMethod]
+        public void RestaurantSearch_OnPostString_ReturnsCorrectView()
+        {
+            var result = _controller.RestaurantSearch(It.IsAny<string>()) as ViewResult;
+
+            Assert.AreEqual("ListRestaurants", result.ViewName);
+        }
+
+        [TestMethod]
+        public void RestaurantSearch_OnPostString_ReturnsCorrectViewModel()
+        {
+            var result = _controller.RestaurantSearch(It.IsAny<string>()) as ViewResult;
+
+            Assert.IsInstanceOfType(result.Model, typeof(ListRestaurantsViewModel));
+        }
+
+        [TestMethod]
+        public void ViewReviews_OnPostGuid_ReturnsCorrectView()
+        {
+            var result = _controller.ViewReviews(new ListRestaurantsViewModel()) as ViewResult;
+
+            Assert.AreEqual("ViewReviews", result.ViewName);
+        }
+
+        [TestMethod]
+        public void ViewReviews_OnPostGuid_ReturnsCorrectViewModel()
+        {
+            var result = _controller.ViewReviews(new ListRestaurantsViewModel()) as ViewResult;
+
+            Assert.IsInstanceOfType(result.Model, typeof(RestaurantReviewsViewModel));
+        }
+
+        [TestMethod]
+        public void CreateRestaurant_OnCall_ReturnsCorrectView()
+        {
+            var result = _controller.CreateRestaurant() as ViewResult;
+
+            Assert.AreEqual("CreateRestaurant", result.ViewName);
+        }
+
+        [TestMethod]
+        public void CreateRestaurant_OnPostViewModel_ReturnsCorrectAction()
+        {
+            var result = _controller.CreateRestaurant(new CreateRestaurantViewModel()) as RedirectToRouteResult;
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual("ListRestaurants", result.RouteValues["Action"]);
+        }
+
+        [TestMethod]
+        public void CreateRestaurant_OnInvalidModelState_ReturnsCorrectView()
+        {
+            _controller.ModelState.AddModelError("Bad", "Error");
+
+            var result = _controller.CreateRestaurant(new CreateRestaurantViewModel()) as ViewResult;
+
+            Assert.AreEqual("CreateRestaurant", result.ViewName);
+        }
+
+        [TestMethod]
+        public void CreateRestaurant_OnInvalidModelState_ReturnsCorrectViewModel()
+        {
+            _controller.ModelState.AddModelError("Bad", "Error");
+
+            var result = _controller.CreateRestaurant(new CreateRestaurantViewModel()) as ViewResult;
+
+            Assert.IsInstanceOfType(result.Model, typeof(CreateRestaurantViewModel));
         }
     }
 }

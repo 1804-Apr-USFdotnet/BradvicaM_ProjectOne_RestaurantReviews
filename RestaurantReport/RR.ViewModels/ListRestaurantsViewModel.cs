@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace RR.ViewModels
@@ -6,7 +7,8 @@ namespace RR.ViewModels
     public class ListRestaurantsViewModel
     {
         public string ListOrder { get; set; }
-        public IEnumerable<SelectListItem> SelectListItems { get; set; }
+        public Guid SelectRestaurantPublicId { get; set; }
+        public IEnumerable<SelectListItem> SelectListItems { get; }
         public IEnumerable<ViewRestaurantViewModel> ViewRestaurantViewModels { get; set; }
 
         public ListRestaurantsViewModel()

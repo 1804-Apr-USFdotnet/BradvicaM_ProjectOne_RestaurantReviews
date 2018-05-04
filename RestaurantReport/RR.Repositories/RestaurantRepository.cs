@@ -17,7 +17,7 @@ namespace RR.Repositories
 
         public Restaurant GetById(Guid restaurantId)
         {
-            return _context.Restaurants.First(x => x.RestaurantId == restaurantId);
+            return _context.Restaurants.First(x => x.RestaurantPublicId == restaurantId);
         }
 
         public IEnumerable<Restaurant> Get()
@@ -33,7 +33,7 @@ namespace RR.Repositories
 
         public void Update(Restaurant restaurant)
         {
-            var entity = _context.Restaurants.Find(restaurant.Id);
+            var entity = _context.Restaurants.Find(restaurant.RestaurantId);
             _context.Entry(entity).CurrentValues.SetValues(restaurant);
             _context.SaveChanges();
         }

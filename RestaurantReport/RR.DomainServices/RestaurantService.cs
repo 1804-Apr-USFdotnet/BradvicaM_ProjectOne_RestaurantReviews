@@ -52,7 +52,9 @@ namespace RR.DomainServices
 
         public void ReviewRestaurant(Review review)
         {
-            var restaurant = _restaurantRepository.GetById(review.Restaurant.RestaurantId);
+            var restaurant = _restaurantRepository.GetById(review.Restaurant.RestaurantPublicId);
+
+            review.Restaurant = null;
 
             restaurant.Reviews.Add(review);
             restaurant.CalculateAverageRating(restaurant.Reviews);

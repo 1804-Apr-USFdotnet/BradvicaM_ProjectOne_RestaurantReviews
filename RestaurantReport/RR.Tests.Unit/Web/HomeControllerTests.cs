@@ -68,5 +68,17 @@ namespace RR.Tests.Unit.Web
 
             Assert.AreEqual("Contact", result.ViewName);
         }
+
+        [TestMethod]
+        public void Contact_OnPostModelErrorViewModel_ReturnsCorrectViewModel()
+        {
+            var controller = new HomeController();
+
+            controller.ModelState.AddModelError("Bad", "Error");
+
+            var result = controller.Contact(new CreateContactViewModel()) as ViewResult;
+
+            Assert.IsInstanceOfType(result.Model, typeof(CreateContactViewModel));
+        }
     }
 }

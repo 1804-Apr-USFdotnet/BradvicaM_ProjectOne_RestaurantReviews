@@ -15,8 +15,8 @@ namespace RR.Repositories
                 State = "MO",
                 Street = "123 Barbeque St.",
                 ZipCode = 81721,
+                RestaurantPublicId = Guid.NewGuid(),
                 RestaurantId = Guid.NewGuid(),
-                Id = Guid.NewGuid(),
                 Name = "Billy Bobs Texas BBQ",
                 PhoneNumber = "8761234121",
                 AverageRating = 0.0,
@@ -26,8 +26,8 @@ namespace RR.Repositories
 
             var review = new Review
             {
+                ReviewPublicId = Guid.NewGuid(),
                 ReviewId = Guid.NewGuid(),
-                Id = Guid.NewGuid(),
                 Comment = "It was ok.",
                 Rating = 5.00,
                 ReviewerName = "Mike"

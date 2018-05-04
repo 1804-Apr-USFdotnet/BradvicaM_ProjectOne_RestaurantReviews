@@ -250,10 +250,12 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Restaurant\ListRestaurants.cshtml" />
-    <Content Include="Views\Restaurant\OrderRestaurants.cshtml" />
     <Content Include="Views\Restaurant\TopRatedRestaurants.cshtml" />
     <Content Include="Views\Restaurant\Index.cshtml" />
     <Content Include="Views\Restaurant\RestaurantDetails.cshtml" />
+    <Content Include="Views\Restaurant\ViewReviews.cshtml" />
+    <Content Include="Views\Restaurant\CreateRestaurant.cshtml" />
+    <Content Include="Views\Restaurant\CreateReview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

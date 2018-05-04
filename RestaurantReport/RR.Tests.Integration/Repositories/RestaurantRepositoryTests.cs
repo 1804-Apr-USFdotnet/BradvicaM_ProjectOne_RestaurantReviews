@@ -26,14 +26,14 @@ namespace RR.Tests.Integration.Repositories
         {
             var restaurant = new Restaurant
             {
-                Id = Guid.NewGuid(),
-                RestaurantId = Guid.NewGuid()
+                RestaurantId = Guid.NewGuid(),
+                RestaurantPublicId = Guid.NewGuid()
             };
 
             _textContext.Restaurants.Add(restaurant);
             _textContext.SaveChanges();
 
-            var result = _restaurantRepository.GetById(restaurant.RestaurantId);
+            var result = _restaurantRepository.GetById(restaurant.RestaurantPublicId);
 
             Assert.AreEqual(restaurant, result);
         }
@@ -45,18 +45,18 @@ namespace RR.Tests.Integration.Repositories
             {
                 new Restaurant
                 {
-                    Id = Guid.NewGuid(),
-                    RestaurantId = Guid.NewGuid()
+                    RestaurantId = Guid.NewGuid(),
+                    RestaurantPublicId = Guid.NewGuid()
                 },
                 new Restaurant
                 {
-                    Id = Guid.NewGuid(),
-                    RestaurantId = Guid.NewGuid()
+                    RestaurantId = Guid.NewGuid(),
+                    RestaurantPublicId = Guid.NewGuid()
                 },
                 new Restaurant
                 {
-                    Id = Guid.NewGuid(),
-                    RestaurantId = Guid.NewGuid()
+                    RestaurantId = Guid.NewGuid(),
+                    RestaurantPublicId = Guid.NewGuid()
                 }
             };
 
@@ -76,8 +76,8 @@ namespace RR.Tests.Integration.Repositories
         {
             var restaurant = new Restaurant
             {
-                Id = Guid.NewGuid(),
-                RestaurantId = Guid.NewGuid()
+                RestaurantId = Guid.NewGuid(),
+                RestaurantPublicId = Guid.NewGuid()
             };
 
             _textContext.Restaurants.Add(restaurant);
@@ -94,8 +94,8 @@ namespace RR.Tests.Integration.Repositories
         {
             var beforeUpdate = new Restaurant
             {
-                Id = Guid.Parse("3d18e4bf-768d-44ec-b3a8-02e8eec06d56"),
-                RestaurantId = Guid.Parse("5b2805a3-eadc-4fa0-9eba-1caab4620e07"),
+                RestaurantId = Guid.Parse("3d18e4bf-768d-44ec-b3a8-02e8eec06d56"),
+                RestaurantPublicId = Guid.Parse("5b2805a3-eadc-4fa0-9eba-1caab4620e07"),
                 AverageRating = 5.43,
                 City = "Tampa",
                 Name = "Jakes Del Tampa",
@@ -112,8 +112,8 @@ namespace RR.Tests.Integration.Repositories
 
             var afterUpdate = new Restaurant
             {
-                Id = beforeUpdate.Id,
                 RestaurantId = beforeUpdate.RestaurantId,
+                RestaurantPublicId = beforeUpdate.RestaurantPublicId,
                 AverageRating = 1.23,
                 City = "Del Mar",
                 Name = "Mikes Tampa",
@@ -126,7 +126,7 @@ namespace RR.Tests.Integration.Repositories
 
             _restaurantRepository.Update(afterUpdate);
 
-            var result = _restaurantRepository.GetById(beforeUpdate.RestaurantId);
+            var result = _restaurantRepository.GetById(beforeUpdate.RestaurantPublicId);
 
             Approvals.Verify(result);
         }
@@ -136,8 +136,8 @@ namespace RR.Tests.Integration.Repositories
         {
             var restaurant = new Restaurant
             {
-                Id = Guid.NewGuid(),
-                RestaurantId = Guid.NewGuid()
+                RestaurantId = Guid.NewGuid(),
+                RestaurantPublicId = Guid.NewGuid()
             };
 
             _restaurantRepository.Add(restaurant);

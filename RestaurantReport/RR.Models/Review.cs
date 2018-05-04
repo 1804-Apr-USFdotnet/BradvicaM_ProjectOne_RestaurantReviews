@@ -4,8 +4,8 @@ namespace RR.Models
 {
     public class Review
     {
-        public Guid Id { get; set; }
         public Guid ReviewId { get; set; }
+        public Guid ReviewPublicId { get; set; }
         public string ReviewerName { get; set; }
         public double Rating { get; set; }
         public string Comment { get; set; }
@@ -15,7 +15,7 @@ namespace RR.Models
 
         public override string ToString()
         {
-            return $"\nReviewId: {Id}\nId: {ReviewId}\nName: {ReviewerName}\nRating: {Rating}\nComment: {Comment}\n";
+            return $"\nReviewId: {ReviewId}\nId: {ReviewPublicId}\nName: {ReviewerName}\nRating: {Rating}\nComment: {Comment}\n";
         }
     }
 }

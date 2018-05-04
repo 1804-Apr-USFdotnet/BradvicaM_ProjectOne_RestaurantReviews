@@ -6,8 +6,8 @@ namespace RR.Models
 {
     public class Restaurant
     {
-        public Guid Id { get; set; }
         public Guid RestaurantId { get; set; }
+        public Guid RestaurantPublicId { get; set; }
         public string Name { get; set; }
         public string Street { get; set; }
         public string City { get; set; }
@@ -21,7 +21,7 @@ namespace RR.Models
 
         public override string ToString()
         {
-            return $"\nId: {Id}\nRestaurantId: {RestaurantId}\nName: {Name}\nStreet: {Street}\nCity: {City}\nState: {State}\nZipCode: {ZipCode}" +
+            return $"\nId: {RestaurantId}\nRestaurantId: {RestaurantPublicId}\nName: {Name}\nStreet: {Street}\nCity: {City}\nState: {State}\nZipCode: {ZipCode}" +
                    $"\nPhoneNumber: {PhoneNumber}\nWebsite: {Website}\nRating: {AverageRating}\n";
         }
 

@@ -17,7 +17,7 @@ namespace RR.Repositories
 
         public Review GetById(Guid reviewId)
         {
-            return _context.Reviews.First(x => x.ReviewId == reviewId);
+            return _context.Reviews.First(x => x.ReviewPublicId == reviewId);
         }
 
         public IEnumerable<Review> Get()
@@ -27,7 +27,7 @@ namespace RR.Repositories
 
         public void Update(Review review)
         {
-            var entity = _context.Reviews.Find(review.Id);
+            var entity = _context.Reviews.Find(review.ReviewId);
             _context.Entry(entity).CurrentValues.SetValues(review);
             _context.SaveChanges();
         }
