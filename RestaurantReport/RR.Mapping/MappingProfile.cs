@@ -10,6 +10,12 @@ namespace RR.Mapping
         {
             CreateMap<Restaurant, ViewRestaurantViewModel>()
                 .ForSourceMember(src => src.Id, opt => opt.Ignore());
+
+            CreateMap<Restaurant, TopRatedRestaurantViewModel>()
+                .ForSourceMember(src => src.Id, opt => opt.Ignore())
+                .ForSourceMember(src => src.Website, opt => opt.Ignore())
+                .ForSourceMember(src => src.PhoneNumber, opt => opt.Ignore())
+                .ForSourceMember(src => src.Reviews, opt => opt.Ignore());
         }
     }
 }

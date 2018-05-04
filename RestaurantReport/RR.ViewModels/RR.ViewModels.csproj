@@ -66,6 +66,7 @@
     <Compile Include="CreateContactViewModel.cs" />
     <Compile Include="ListRestaurantsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TopRatedRestaurantViewModel.cs" />
     <Compile Include="ViewRestaurantViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<RR.ViewModels.TopRatedRestaurantViewModel>
+
+@{
+    ViewBag.Title = "TopRatedRestaurants";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Top Rated Restaurants</h2>
+
+<div class="row">
+    @foreach (var i in Model)
+    {
+        <div class="col">
+        <div class="card text-center">
+            <h4 class="card-title text-dark">@i.Name @i.AverageRating</h4>
+            <p class="card-text">
+                <address class="text-dark">
+                    @i.Street<br/>
+                    @i.City @i.State<br/>
+                    @i.State @i.ZipCode
+                </address>
+            </p>
+        </div>
+        </div>
+    }
+</div>

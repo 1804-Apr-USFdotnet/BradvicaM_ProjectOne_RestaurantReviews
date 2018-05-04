@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using AutoMapper;
 using RR.DomainContracts;
@@ -15,6 +16,12 @@ namespace RR.Web.Controllers
         {
             _restaurantService = restaurantService;
             _mapper = mapper;
+        }
+
+        [Route("Restaurant/Index")]
+        public ActionResult Index()
+        {
+            return View("Index");
         }
 
         [Route("Restaurant/List")]
@@ -38,7 +45,28 @@ namespace RR.Web.Controllers
 
             var viewModel = new ListRestaurantsViewModel { ViewRestaurantViewModels = restaurantViewModels };
 
-            return View(viewModel);
+            return View("ListRestaurants", viewModel);
+        }
+
+        [Route("Restaurant/TopRated")]
+        public ActionResult TopRatedRestaurants()
+        {
+            var results = _restaurantService.TopThreeRatedRestaurants();
+
+            var viewModel = _mapper.Map<IEnumerable<TopRatedRestaurantViewModel>>(results);
+
+            return View("TopRatedRestaurants", viewModel);
+        }
+
+        [Route("Restaurant/Details")]
+        [HttpPost]
+        public ActionResult RestaurantDetails(Guid restaurantId)
+        {
+            var restaurant = _restaurantService.Get(restaurantId);
+
+            var viewModel = _mapper.Map<ViewRestaurantViewModel>(restaurant);
+
+            return View("RestaurantDetails", viewModel);
         }
     }
 }

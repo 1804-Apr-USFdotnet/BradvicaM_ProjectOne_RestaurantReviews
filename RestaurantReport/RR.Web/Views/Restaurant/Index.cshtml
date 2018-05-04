@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Restaurant Index</h2>
+
+<div class="row mb-5">
+    <div class="col">
+        <div class="card">
+            <img class="card-img-top" src="~/Content/Images/restaurantImage1.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h4 class="card-title">All Restaurants</h4>
+                <p class="card-text text-dark">View some of your local eateries.</p>
+                @Html.ActionLink("All Restaurants", "ListRestaurants", "Restaurant", null, new {@class = "btn btn-dark"})
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <img class="card-img-top" src="~/Content/Images/restaurantImage2.jpg" atl="Card image cap"/>
+            <div class="card-body">
+                <h4 class="card-title">Add Restaurant</h4>
+                <p class ="card-text text-dark">Don't see a restaurant here? Add it yourself.</p>
+                @Html.ActionLink("Add Restaurant", "CreateRestaurant", "Restaurant", null, new {@class = "btn btn-dark"})
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <img class="card-img-top" src="~/Content/Images/restaurantImage3.jpg" atl="Card image cap" />
+            <div class="card-body">
+                <h4 class="card-title">Top Rated Restaurants</h4>
+                <p class="card-text text-dark">Look at what people are raving about.</p>
+                @Html.ActionLink("Top Rated Restaurants", "TopRatedRestaurants", "Restaurant", null, new { @class = "btn btn-dark" })
+            </div>
+        </div>
+    </div>
+    <div class="col">
+
+    </div>
+</div>
+
+
