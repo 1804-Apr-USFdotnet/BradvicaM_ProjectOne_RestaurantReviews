@@ -36,6 +36,7 @@ namespace RR.Web.Controllers
             return View("ListRestaurants", viewModel);
         }
 
+        //Change to get
         [Route("Restaurant/List")]
         [HttpPost]
         public ActionResult ListRestaurants(ListRestaurantsViewModel listRestaurantsViewModel)
@@ -59,6 +60,7 @@ namespace RR.Web.Controllers
             return View("TopRatedRestaurants", viewModel);
         }
 
+        //Change to get
         [Route("Restaurant/Details")]
         [HttpPost]
         public ActionResult RestaurantDetails(Guid restaurantId)
@@ -70,6 +72,7 @@ namespace RR.Web.Controllers
             return View("RestaurantDetails", viewModel);
         }
 
+        //Change to get
         [Route("Restaurant/Search")]
         [HttpPost]
         public ActionResult RestaurantSearch(string searchTerm)
@@ -83,6 +86,7 @@ namespace RR.Web.Controllers
             return View("ListRestaurants", viewModel);
         }
 
+        //Change to get
         [Route("Restaurant/Reviews")]
         [HttpPost]
         public ActionResult ViewReviews(ListRestaurantsViewModel postViewModel)
@@ -132,11 +136,7 @@ namespace RR.Web.Controllers
         {
             if (!ModelState.IsValid) return View("CreateReview", postViewModel);
 
-            //var restaurant = _restaurantService.Get(postViewModel.RestaurantPublicId);
-
             var review = _mapper.Map<Review>(postViewModel);
-
-            //review.Restaurant = restaurant;
 
             _restaurantService.ReviewRestaurant(review);
 
