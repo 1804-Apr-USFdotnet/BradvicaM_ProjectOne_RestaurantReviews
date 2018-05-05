@@ -93,10 +93,10 @@ namespace RR.Web.Controllers
         {
             var restaurant = _restaurantService.Get(postViewModel.SelectRestaurantPublicId);
 
-            var reviewsVM = _mapper.Map<IEnumerable<Review>, IEnumerable<ViewReviewViewModel>>(restaurant.Reviews);
-            var restaurantVM = _mapper.Map<Restaurant, ViewRestaurantViewModel>(restaurant);
+            var reviewsVm = _mapper.Map<IEnumerable<Review>, IEnumerable<ViewReviewViewModel>>(restaurant.Reviews);
+            var restaurantVm = _mapper.Map<Restaurant, ViewRestaurantViewModel>(restaurant);
 
-            var viewModel = new RestaurantReviewsViewModel {Restaurant = restaurantVM, Reviews = reviewsVM};
+            var viewModel = new RestaurantReviewsViewModel {Restaurant = restaurantVm, Reviews = reviewsVm};
 
             return View("ViewReviews", viewModel);
         }

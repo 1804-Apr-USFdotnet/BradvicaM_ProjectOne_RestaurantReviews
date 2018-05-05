@@ -9,14 +9,12 @@ namespace RR.Web.Controllers
     public class ReviewController : Controller
     {
         private readonly IReviewService _reviewService;
-        private readonly IRestaurantService _restaurantService;
         private readonly IMapper _mapper;
 
-        public ReviewController(IReviewService reviewService, IMapper mapper, IRestaurantService restaurantService)
+        public ReviewController(IReviewService reviewService, IMapper mapper)
         {
             _reviewService = reviewService;
             _mapper = mapper;
-            _restaurantService = restaurantService;
         }
 
         [Route("Review/Edit")]
@@ -46,9 +44,6 @@ namespace RR.Web.Controllers
 
             _reviewService.UpdateReview(reviewToUpdate);
 
-            reviewToUpdate.Restaurant.CalculateAverageRating(reviewToUpdate.Restaurant.Reviews);
-            _restaurantService.UpdateRestaurant(reviewToUpdate.Restaurant);
-
             return RedirectToAction("ListRestaurants", "Restaurant");
         }
 
@@ -58,11 +53,7 @@ namespace RR.Web.Controllers
         {
             var review = _reviewService.Get(postViewModel.SelectReviewPublicId);
 
-            var restaurant = review.Restaurant;
             _reviewService.DeleteReview(review);
-
-            restaurant.CalculateAverageRating(restaurant.Reviews);
-            _restaurantService.UpdateRestaurant(restaurant);
 
             return RedirectToAction("ListRestaurants", "Restaurant");
         }

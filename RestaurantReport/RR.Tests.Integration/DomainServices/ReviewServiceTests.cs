@@ -18,7 +18,7 @@ namespace RR.Tests.Integration.DomainServices
         public ReviewServiceTests()
         {
             _testContext = new RestaurantReportTestContext();
-            _reviewService = new ReviewService(new ReviewRepository(_testContext));
+            _reviewService = new ReviewService(new ReviewRepository(_testContext), new RestaurantRepository(_testContext));
         }
 
         [TestMethod]
