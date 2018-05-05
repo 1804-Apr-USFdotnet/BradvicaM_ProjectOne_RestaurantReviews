@@ -1,0 +1,72 @@
+﻿@model RR.ViewModels.EditRestaurantViewModel
+
+@{
+    ViewBag.Title = "EditRestaurant";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Restaurant</h2>
+
+@using (Html.BeginForm("EditRestaurant", "Restaurant", FormMethod.Post))
+{
+
+    @Html.ValidationSummary(true)
+
+    @Html.HiddenFor(x => x.RestaurantPublicId, new {Value = Model.RestaurantPublicId})
+
+    <fieldset>
+        <legend>Add Restaurant</legend>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Name) :
+            <div>
+                @Html.EditorFor(x => x.Name, new { htmlAttributes = new { @class = "form-control", Value = Model.Name } })
+                @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Street) :
+            <div>
+                @Html.EditorFor(x => x.Street, new { htmlAttributes = new { @class = "form-control", Value = Model.Street } })
+                @Html.ValidationMessageFor(x => x.Street, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.City) :
+            <div>
+                @Html.EditorFor(x => x.City, new { htmlAttributes = new { @class = "form-control", Value = Model.City } })
+                @Html.ValidationMessageFor(x => x.City, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.ZipCode) :
+            <div>
+                @Html.EditorFor(x => x.ZipCode, new { htmlAttributes = new { @class = "form-control", Value = Model.ZipCode } })
+                @Html.ValidationMessageFor(x => x.ZipCode, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.State) :
+            <div>
+                @Html.EditorFor(x => x.State, new { htmlAttributes = new { @class = "form-control", Value = Model.State } })
+                @Html.ValidationMessageFor(x => x.State, null, new { @clss = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.PhoneNumber) :
+            <div>
+                @Html.EditorFor(x => x.PhoneNumber, new { htmlAttributes = new { @class = "form-control", Value = Model.PhoneNumber } })
+                @Html.ValidationMessageFor(x => x.PhoneNumber, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Website) :
+            <div>
+                @Html.EditorFor(x => x.Website, new { htmlAttributes = new { @class = "form-control", Value = Model.Website } })
+                @Html.ValidationMessageFor(x => x.Website, null, new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Submit" />
+    </fieldset>
+
+}

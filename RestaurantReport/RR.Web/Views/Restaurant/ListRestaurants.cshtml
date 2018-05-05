@@ -57,7 +57,7 @@
                     }
                 </td>
                 <td>
-                    @using (Html.BeginForm("EditRestaurant", "Restaurant", FormMethod.Post))
+                    @using (Html.BeginForm("EditRestaurant", "Restaurant", FormMethod.Get))
                     {
                         @Html.HiddenFor(x => x.SelectRestaurantPublicId, new { Value = i.RestaurantPublicId})
                         <input type="submit" class="btn btn-dark text-light" value="Edit" />

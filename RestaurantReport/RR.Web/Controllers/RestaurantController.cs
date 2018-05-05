@@ -31,7 +31,7 @@ namespace RR.Web.Controllers
         {
             var restaurantViewModels = _mapper.Map<IEnumerable<ViewRestaurantViewModel>>(_restaurantService.Get());
 
-            var viewModel = new ListRestaurantsViewModel{ViewRestaurantViewModels = restaurantViewModels};
+            var viewModel = new ListRestaurantsViewModel {ViewRestaurantViewModels = restaurantViewModels};
 
             return View("ListRestaurants", viewModel);
         }
@@ -45,7 +45,7 @@ namespace RR.Web.Controllers
 
             var restaurantViewModels = _mapper.Map<IEnumerable<ViewRestaurantViewModel>>(results);
 
-            var viewModel = new ListRestaurantsViewModel { ViewRestaurantViewModels = restaurantViewModels };
+            var viewModel = new ListRestaurantsViewModel {ViewRestaurantViewModels = restaurantViewModels};
 
             return View("ListRestaurants", viewModel);
         }
@@ -81,7 +81,7 @@ namespace RR.Web.Controllers
 
             var restaurantViewModels = _mapper.Map<IEnumerable<ViewRestaurantViewModel>>(results);
 
-            var viewModel = new ListRestaurantsViewModel{ViewRestaurantViewModels = restaurantViewModels};
+            var viewModel = new ListRestaurantsViewModel {ViewRestaurantViewModels = restaurantViewModels};
 
             return View("ListRestaurants", viewModel);
         }
@@ -96,7 +96,7 @@ namespace RR.Web.Controllers
             var reviewsVM = _mapper.Map<IEnumerable<Review>, IEnumerable<ViewReviewViewModel>>(restaurant.Reviews);
             var restaurantVM = _mapper.Map<Restaurant, ViewRestaurantViewModel>(restaurant);
 
-            var viewModel = new RestaurantReviewsViewModel{Restaurant =  restaurantVM, Reviews = reviewsVM};
+            var viewModel = new RestaurantReviewsViewModel {Restaurant = restaurantVM, Reviews = reviewsVM};
 
             return View("ViewReviews", viewModel);
         }
@@ -121,6 +121,7 @@ namespace RR.Web.Controllers
             return RedirectToAction("ListRestaurants");
         }
 
+        //Move to reviews
         [Route("Restaurant/Review")]
         [HttpGet]
         public ActionResult CreateReview(ListRestaurantsViewModel getViewModel)
@@ -130,6 +131,7 @@ namespace RR.Web.Controllers
             return View("CreateReview", viewModel);
         }
 
+        //Move to reviews
         [Route("Restaurant/Review")]
         [HttpPost]
         public ActionResult CreateReview(CreateReviewViewModel postViewModel)
@@ -139,6 +141,47 @@ namespace RR.Web.Controllers
             var review = _mapper.Map<Review>(postViewModel);
 
             _restaurantService.ReviewRestaurant(review);
+
+            return RedirectToAction("ListRestaurants");
+        }
+
+        [Route("Restaurant/Edit")]
+        [HttpGet]
+        public ActionResult EditRestaurant(ListRestaurantsViewModel postViewModel)
+        {
+            var restaurant = _restaurantService.Get(postViewModel.SelectRestaurantPublicId);
+
+            var viewModel = _mapper.Map<Restaurant, EditRestaurantViewModel>(restaurant);
+
+            return View("EditRestaurant", viewModel);
+        }
+
+        [Route("Restaurant/Edit")]
+        [HttpPost]
+        public ActionResult EditRestaurant(EditRestaurantViewModel postViewModel)
+        {
+            if (!ModelState.IsValid) return View("EditRestaurant", postViewModel);
+
+            var restaurant = _restaurantService.Get(postViewModel.RestaurantPublicId);
+
+            var restaurantToUpdate = _mapper.Map<EditRestaurantViewModel, Restaurant>(postViewModel);
+
+            restaurantToUpdate.RestaurantId = restaurant.RestaurantId;
+            restaurantToUpdate.Reviews = restaurant.Reviews;
+            restaurantToUpdate.AverageRating = restaurant.AverageRating;
+
+            _restaurantService.UpdateRestaurant(restaurantToUpdate);
+
+            return RedirectToAction("ListRestaurants");
+        }
+
+        [Route("Restaurant/Delete")]
+        [HttpPost]
+        public ActionResult DeleteRestaurant(ListRestaurantsViewModel postViewModel)
+        {
+            var restaurant = _restaurantService.Get(postViewModel.SelectRestaurantPublicId);
+
+            _restaurantService.DeleteRestaurant(restaurant);
 
             return RedirectToAction("ListRestaurants");
         }

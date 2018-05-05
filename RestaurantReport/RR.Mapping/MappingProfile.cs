@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.Remoting.Channels;
 using AutoMapper;
 using RR.Models;
 using RR.ViewModels;
@@ -10,19 +9,11 @@ namespace RR.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<Restaurant, ViewRestaurantViewModel>()
-                .ForSourceMember(src => src.RestaurantId, opt => opt.Ignore());
+            CreateMap<Restaurant, ViewRestaurantViewModel>();
 
-            CreateMap<Restaurant, TopRatedRestaurantViewModel>()
-                .ForSourceMember(src => src.RestaurantId, opt => opt.Ignore())
-                .ForSourceMember(src => src.Website, opt => opt.Ignore())
-                .ForSourceMember(src => src.PhoneNumber, opt => opt.Ignore())
-                .ForSourceMember(src => src.Reviews, opt => opt.Ignore());
+            CreateMap<Restaurant, TopRatedRestaurantViewModel>();
 
-            CreateMap<Review, ViewReviewViewModel>()
-                .ForSourceMember(src => src.ReviewId, opt => opt.Ignore())
-                .ForSourceMember(src => src.RestaurantId, opt => opt.Ignore())
-                .ForSourceMember(src => src.Restaurant, opt => opt.Ignore());
+            CreateMap<Review, ViewReviewViewModel>();
 
             CreateMap<CreateRestaurantViewModel, Restaurant>()
                 .ForMember(des => des.Reviews, opt => opt.Ignore())
@@ -42,6 +33,14 @@ namespace RR.Mapping
                 .ForMember(des => des.RestaurantId, opt => opt.Ignore())
                 .BeforeMap((des, src) => src.Restaurant = new Restaurant())
                 .ForPath(des => des.Restaurant.RestaurantPublicId, opt => opt.MapFrom(src => src.RestaurantPublicId));
+
+            CreateMap<Restaurant, EditRestaurantViewModel>();
+
+            CreateMap<EditRestaurantViewModel, Restaurant>()
+                .ForMember(des => des.RestaurantId, opt => opt.Ignore())
+                .ForMember(des => des.AverageRating, opt => opt.Ignore())
+                .ForMember(des => des.Reviews, opt => opt.Ignore());
+
         }
     }
 }
