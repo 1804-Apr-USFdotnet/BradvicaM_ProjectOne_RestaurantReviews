@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace RR.ViewModels
 {
@@ -6,5 +7,6 @@ namespace RR.ViewModels
     {
         public IEnumerable<ViewReviewViewModel> Reviews { get; set; }
         public ViewRestaurantViewModel Restaurant { get; set; }
+        public Guid SelectReviewPublicId { get; set; }
     }
 }

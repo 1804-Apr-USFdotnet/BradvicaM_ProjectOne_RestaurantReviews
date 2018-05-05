@@ -257,6 +257,7 @@
     <Content Include="Views\Restaurant\CreateRestaurant.cshtml" />
     <Content Include="Views\Restaurant\CreateReview.cshtml" />
     <Content Include="Views\Restaurant\EditRestaurant.cshtml" />
+    <Content Include="Views\Review\EditReview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -303,9 +304,7 @@
       <Name>RR.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Review\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

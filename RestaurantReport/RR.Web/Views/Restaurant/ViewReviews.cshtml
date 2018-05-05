@@ -29,10 +29,18 @@
             <td>@i.Rating</td>
             <td>@i.Comment</td>
             <td>
-
+                @using (Html.BeginForm("EditReview", "Review", FormMethod.Get))
+                {
+                    @Html.HiddenFor(x => x.SelectReviewPublicId, new { Value = i.ReviewPublicId})
+                    <input type="submit" class="btn btn-dark text-light" value="Edit Review"/>
+                }
             </td>
             <td>
-
+                @using (Html.BeginForm("DeleteReview", "Review", FormMethod.Post))
+                { 
+                    @Html.HiddenFor(x => x.SelectReviewPublicId, new { Value = i.ReviewPublicId })
+                    <input type="submit" class="btn btn-dark text-light" value="Delete Review" />
+                }
             </td>
         </tr>
     }

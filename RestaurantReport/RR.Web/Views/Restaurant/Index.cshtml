@@ -11,7 +11,7 @@
         <div class="card">
             <img class="card-img-top" src="~/Content/Images/restaurantImage1.jpg" alt="Card image cap">
             <div class="card-body">
-                <h4 class="card-title">All Restaurants</h4>
+                <h4 class="card-title text-dark">All Restaurants</h4>
                 <p class="card-text text-dark">View some of your local eateries.</p>
                 @Html.ActionLink("All Restaurants", "ListRestaurants", "Restaurant", null, new {@class = "btn btn-dark"})
             </div>
@@ -21,7 +21,7 @@
         <div class="card">
             <img class="card-img-top" src="~/Content/Images/restaurantImage2.jpg" atl="Card image cap"/>
             <div class="card-body">
-                <h4 class="card-title">Add Restaurant</h4>
+                <h4 class="card-title text-dark">Add Restaurant</h4>
                 <p class ="card-text text-dark">Don't see a restaurant here? Add it yourself.</p>
                 @Html.ActionLink("Add Restaurant", "CreateRestaurant", "Restaurant", null, new {@class = "btn btn-dark"})
             </div>
@@ -33,7 +33,7 @@
         <div class="card">
             <img class="card-img-top" src="~/Content/Images/restaurantImage3.jpg" atl="Card image cap" />
             <div class="card-body">
-                <h4 class="card-title">Top Rated Restaurants</h4>
+                <h4 class="card-title text-dark">Top Rated Restaurants</h4>
                 <p class="card-text text-dark">Look at what people are raving about.</p>
                 @Html.ActionLink("Top Rated Restaurants", "TopRatedRestaurants", "Restaurant", null, new { @class = "btn btn-dark" })
             </div>
@@ -43,7 +43,7 @@
         <div class="card">
             <img class="card-img-top" src="~/Content/Images/restaurantImage4.jpg" atl="Card image cap" />
             <div class="card-body">
-                <h4 class="card-title">Search</h4>
+                <h4 class="card-title text-dark">Search</h4>
                 <p class="card-text text-dark">Search for a restaurant.</p>
                 @using (Html.BeginForm("RestaurantSearch", "Restaurant", FormMethod.Post))
                 {

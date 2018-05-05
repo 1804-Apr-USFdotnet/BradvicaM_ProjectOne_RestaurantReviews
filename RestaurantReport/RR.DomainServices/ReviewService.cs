@@ -1,4 +1,5 @@
-﻿using RR.DomainContracts;
+﻿using System;
+using RR.DomainContracts;
 using RR.Models;
 using RR.RepositoryContracts;
 
@@ -21,6 +22,11 @@ namespace RR.DomainServices
         public void DeleteReview(Review review)
         {
             _reviewRepository.Delete(review);
+        }
+
+        public Review Get(Guid reviewPublicId)
+        {
+            return _reviewRepository.GetById(reviewPublicId);
         }
     }
 }

@@ -120,6 +120,7 @@
     <Compile Include="QueryObjects\RestaurantOrderQueryTests.cs" />
     <Compile Include="Web\HomeControllerTests.cs" />
     <Compile Include="Web\RestaurantControllerTests.cs" />
+    <Compile Include="Web\ReviewControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -1,4 +1,5 @@
-﻿using RR.Models;
+﻿using System;
+using RR.Models;
 
 namespace RR.DomainContracts
 {
@@ -6,5 +7,6 @@ namespace RR.DomainContracts
     {
         void UpdateReview(Review review);
         void DeleteReview(Review review);
+        Review Get(Guid reviewPublicId);
     }
 }

@@ -164,8 +164,8 @@ namespace RR.Web.Controllers
 
             var restaurant = _restaurantService.Get(postViewModel.RestaurantPublicId);
 
+            //Complex Mapper
             var restaurantToUpdate = _mapper.Map<EditRestaurantViewModel, Restaurant>(postViewModel);
-
             restaurantToUpdate.RestaurantId = restaurant.RestaurantId;
             restaurantToUpdate.Reviews = restaurant.Reviews;
             restaurantToUpdate.AverageRating = restaurant.AverageRating;

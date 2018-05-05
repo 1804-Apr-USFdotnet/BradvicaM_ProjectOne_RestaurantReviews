@@ -41,6 +41,12 @@ namespace RR.Mapping
                 .ForMember(des => des.AverageRating, opt => opt.Ignore())
                 .ForMember(des => des.Reviews, opt => opt.Ignore());
 
+            CreateMap<Review, EditReviewViewModel>();
+
+            CreateMap<EditReviewViewModel, Review>()
+                .ForMember(des => des.ReviewId, opt => opt.Ignore())
+                .ForMember(des => des.RestaurantId, opt => opt.Ignore())
+                .ForMember(des => des.Restaurant, opt => opt.Ignore());
         }
     }
 }

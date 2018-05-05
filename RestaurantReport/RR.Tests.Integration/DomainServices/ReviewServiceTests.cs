@@ -76,5 +76,23 @@ namespace RR.Tests.Integration.DomainServices
 
             Assert.IsFalse(reviews.Contains(review));
         }
+
+        [TestMethod]
+        public void Get_GivenGuid_ReturnsCorrectReview()
+        {
+            var review = new Review
+            {
+                ReviewPublicId = Guid.NewGuid(),
+                ReviewId = Guid.NewGuid(),
+                Restaurant = _testContext.Restaurants.First()
+            };
+
+            _testContext.Reviews.Add(review);
+            _testContext.SaveChanges();
+
+            var result = _reviewService.Get(review.ReviewPublicId);
+
+            Assert.AreEqual(review, result);
+        }
     }
 }
