@@ -28,9 +28,8 @@ namespace RR.Tests.Unit.Web
 
             var container = Bootstrapper.RegisterTypes();
             var mapper = container.Resolve<IMapper>();
-            var topographer = container.Resolve<ITopographer>();
 
-            _controller = new ReviewController(service.Object, mapper, topographer);
+            _controller = new ReviewController(service.Object, mapper);
         }
 
         [TestMethod]

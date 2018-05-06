@@ -29,9 +29,9 @@ namespace RR.Web.Controllers
         [HttpGet]
         public ActionResult ListRestaurants()
         {
-            var restaurantViewModels = _mapper.Map<IEnumerable<ViewRestaurantViewModel>>(_restaurantService.Get());
+            var restaurants = _restaurantService.Get();
 
-            var viewModel = new ListRestaurantsViewModel {ViewRestaurantViewModels = restaurantViewModels};
+            var viewModel = _mapper.Map<ListRestaurantsViewModel>(_mapper.Map<IEnumerable<ViewRestaurantViewModel>>(restaurants));
 
             return View("ListRestaurants", viewModel);
         }
@@ -41,11 +41,9 @@ namespace RR.Web.Controllers
         [HttpPost]
         public ActionResult ListRestaurants(ListRestaurantsViewModel listRestaurantsViewModel)
         {
-            var results = _restaurantService.Get(listRestaurantsViewModel.ListOrder);
+            var restaurants = _restaurantService.Get(listRestaurantsViewModel.ListOrder);
 
-            var restaurantViewModels = _mapper.Map<IEnumerable<ViewRestaurantViewModel>>(results);
-
-            var viewModel = new ListRestaurantsViewModel {ViewRestaurantViewModels = restaurantViewModels};
+            var viewModel = _mapper.Map<ListRestaurantsViewModel>(_mapper.Map<IEnumerable<ViewRestaurantViewModel>>(restaurants));
 
             return View("ListRestaurants", viewModel);
         }
@@ -79,9 +77,7 @@ namespace RR.Web.Controllers
         {
             var results = _restaurantService.PartialSearch(searchTerm);
 
-            var restaurantViewModels = _mapper.Map<IEnumerable<ViewRestaurantViewModel>>(results);
-
-            var viewModel = new ListRestaurantsViewModel {ViewRestaurantViewModels = restaurantViewModels};
+            var viewModel = _mapper.Map<ListRestaurantsViewModel>(_mapper.Map<IEnumerable<ViewRestaurantViewModel>>(results));
 
             return View("ListRestaurants", viewModel);
         }
@@ -93,11 +89,10 @@ namespace RR.Web.Controllers
         {
             var restaurant = _restaurantService.Get(postViewModel.SelectRestaurantPublicId);
 
-            var reviewsVm = _mapper.Map<IEnumerable<Review>, IEnumerable<ViewReviewViewModel>>(restaurant.Reviews);
-            var restaurantVm = _mapper.Map<Restaurant, ViewRestaurantViewModel>(restaurant);
-
-            var viewModel = new RestaurantReviewsViewModel {Restaurant = restaurantVm, Reviews = reviewsVm};
-
+            var reviewsVm = _mapper.Map<IEnumerable<ViewReviewViewModel>>(restaurant.Reviews);
+            var restaurantVm = _mapper.Map<ViewRestaurantViewModel>(restaurant);
+            var viewModel = _mapper.Map<RestaurantReviewsViewModel>(new Tuple<IEnumerable<ViewReviewViewModel>, ViewRestaurantViewModel>(reviewsVm, restaurantVm));
+                
             return View("ViewReviews", viewModel);
         }
 
@@ -127,7 +122,7 @@ namespace RR.Web.Controllers
         {
             var restaurant = _restaurantService.Get(postViewModel.SelectRestaurantPublicId);
 
-            var viewModel = _mapper.Map<Restaurant, EditRestaurantViewModel>(restaurant);
+            var viewModel = _mapper.Map<EditRestaurantViewModel>(restaurant);
 
             return View("EditRestaurant", viewModel);
         }
@@ -140,15 +135,8 @@ namespace RR.Web.Controllers
 
             var restaurant = _restaurantService.Get(postViewModel.RestaurantPublicId);
 
-            //Complex Mapper
-            //USE TUPLES
-            //var tuple = new Tuple<EditRestaurantViewModel, Restaurant>(postViewModel, restaurant);
-            //var restaurantToUpdate = _mapper.Map<Tuple<EditRestaurantViewModel, Restaurant>, Restaurant>(tuple);
-            var restaurantToUpdate = _mapper.Map<EditRestaurantViewModel, Restaurant>(postViewModel);
-            restaurantToUpdate.RestaurantId = restaurant.RestaurantId;
-            restaurantToUpdate.Reviews = restaurant.Reviews;
-            restaurantToUpdate.AverageRating = restaurant.AverageRating;
-
+            var restaurantToUpdate = _mapper.Map<Restaurant>(new Tuple<EditRestaurantViewModel, Restaurant>(postViewModel, restaurant));
+            
             _restaurantService.UpdateRestaurant(restaurantToUpdate);
 
             return RedirectToAction("ListRestaurants");

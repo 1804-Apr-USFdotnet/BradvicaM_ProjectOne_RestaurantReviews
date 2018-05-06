@@ -22,6 +22,7 @@ namespace RR.Tests.Unit.Web
         {
             var restaurantService = new Mock<IRestaurantService>();
             restaurantService.Setup(x => x.Get()).Returns(new List<Restaurant> {new Restaurant()});
+            restaurantService.Setup(x => x.Get(It.IsAny<string>())).Returns(new List<Restaurant>());
             restaurantService.Setup(x => x.Get(It.IsAny<Guid>())).Returns(new Restaurant{Reviews = new List<Review>()});
             restaurantService.Setup(x => x.TopThreeRatedRestaurants()).Returns(new List<Restaurant> {new Restaurant()});
             restaurantService.Setup(x => x.PartialSearch(It.IsAny<string>())).Returns(new List<Restaurant> {new Restaurant()});
