@@ -58,7 +58,7 @@ namespace RR.Tests.Integration.DomainServices
         }
 
         [TestMethod]
-        public void DeleteReview_GivenReview_DeleteReview()
+        public void DeleteReview_GivenReview_DeletesReview()
         {
             var review = new Review
             {
@@ -93,6 +93,23 @@ namespace RR.Tests.Integration.DomainServices
             var result = _reviewService.Get(review.ReviewPublicId);
 
             Assert.AreEqual(review, result);
+        }
+
+        [TestMethod]
+        public void CreateReview_GivenReview_AddsReview()
+        {
+            var review = new Review
+            {
+                ReviewPublicId = Guid.NewGuid(),
+                ReviewId = Guid.NewGuid(),
+                Restaurant = _testContext.Restaurants.First()
+            };
+
+            _reviewService.CreateReview(review, review.Restaurant.RestaurantPublicId);
+
+            var reviews = _testContext.Reviews.ToList();
+
+            Assert.IsTrue(reviews.Contains(review));
         }
     }
 }

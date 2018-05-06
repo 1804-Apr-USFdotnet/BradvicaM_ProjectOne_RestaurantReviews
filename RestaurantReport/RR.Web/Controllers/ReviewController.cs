@@ -57,5 +57,27 @@ namespace RR.Web.Controllers
 
             return RedirectToAction("ListRestaurants", "Restaurant");
         }
+
+        [Route("Review/Create")]
+        [HttpGet]
+        public ActionResult CreateReview(ListRestaurantsViewModel getViewModel)
+        {
+            var viewModel = _mapper.Map<ListRestaurantsViewModel, CreateReviewViewModel>(getViewModel);
+
+            return View("CreateReview", viewModel);
+        }
+
+        [Route("Review/Create")]
+        [HttpPost]
+        public ActionResult CreateReview(CreateReviewViewModel postViewModel)
+        {
+            if (!ModelState.IsValid) return View("CreateReview", postViewModel);
+
+            var review = _mapper.Map<Review>(postViewModel);
+
+            _reviewService.CreateReview(review, postViewModel.RestaurantPublicId);
+
+            return RedirectToAction("ListRestaurants", "Restaurant");
+        }
     }
 }

@@ -10,5 +10,6 @@ namespace RR.RepositoryContracts
         IEnumerable<Review> Get();
         void Update(Review review);
         void Delete(Review review);
+        void Add(Review review);
     }
 }

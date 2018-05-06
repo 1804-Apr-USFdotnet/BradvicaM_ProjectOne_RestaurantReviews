@@ -128,5 +128,22 @@ namespace RR.Tests.Integration.Repositories
 
             Approvals.Verify(result);
         }
+
+        [TestMethod]
+        public void Add_GivenReview_AddsReview()
+        {
+            var review = new Review
+            {
+                ReviewId = Guid.NewGuid(),
+                ReviewPublicId = Guid.NewGuid(),
+                Restaurant = _testContext.Restaurants.First()
+            };
+
+            _reviewRepository.Add(review);
+
+            var reviews = _testContext.Reviews.ToList();
+
+            Assert.IsTrue(reviews.Contains(review));
+        }
     }
 }

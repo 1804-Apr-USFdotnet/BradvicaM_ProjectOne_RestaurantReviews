@@ -7,6 +7,7 @@ namespace RR.DomainContracts
     {
         void UpdateReview(Review review);
         void DeleteReview(Review review);
+        void CreateReview(Review review, Guid restaurantPublicId);
         Review Get(Guid reviewPublicId);
     }
 }

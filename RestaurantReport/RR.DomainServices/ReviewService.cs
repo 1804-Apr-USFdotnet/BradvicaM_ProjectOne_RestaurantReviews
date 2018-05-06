@@ -34,6 +34,16 @@ namespace RR.DomainServices
             _restaurantRepository.Update(restaurant);
         }
 
+        public void CreateReview(Review review, Guid restaurantPublicId)
+        {
+            var restaurant = _restaurantRepository.GetById(restaurantPublicId);
+
+            restaurant.Reviews.Add(review);
+            restaurant.CalculateAverageRating(restaurant.Reviews);
+
+            _restaurantRepository.Update(restaurant);
+        }
+
         public Review Get(Guid reviewPublicId)
         {
             return _reviewRepository.GetById(reviewPublicId);

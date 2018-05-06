@@ -258,6 +258,7 @@
     <Content Include="Views\Restaurant\CreateReview.cshtml" />
     <Content Include="Views\Restaurant\EditRestaurant.cshtml" />
     <Content Include="Views\Review\EditReview.cshtml" />
+    <Content Include="Views\Review\CreateReview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

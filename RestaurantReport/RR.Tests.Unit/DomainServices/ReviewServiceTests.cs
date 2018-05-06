@@ -13,17 +13,20 @@ namespace RR.Tests.Unit.DomainServices
     {
         private readonly Mock<IReviewRepository> _reviewRepository;
         private readonly ReviewService _reviewService;
+        private readonly Mock<IRestaurantRepository> _restaurantRepository;
 
         public ReviewServiceTests()
         {
             _reviewRepository = new Mock<IReviewRepository>();
-            var restaurantRepository = new Mock<IRestaurantRepository>();
-            restaurantRepository.Setup(x => x.Update(It.IsAny<Restaurant>()));
+            _restaurantRepository = new Mock<IRestaurantRepository>();
+            _restaurantRepository.Setup(x => x.Update(It.IsAny<Restaurant>()));
+            _restaurantRepository.Setup(x => x.GetById(It.IsAny<Guid>())).Returns(new Restaurant{Reviews = new List<Review>()});
             _reviewRepository.Setup(x => x.Update(It.IsAny<Review>()));
             _reviewRepository.Setup(x => x.Delete(It.IsAny<Review>()));
             _reviewRepository.Setup(x => x.GetById(It.IsAny<Guid>()));
+            _reviewRepository.Setup(x => x.Add(It.IsAny<Review>()));
 
-            _reviewService = new ReviewService(_reviewRepository.Object, restaurantRepository.Object);
+            _reviewService = new ReviewService(_reviewRepository.Object, _restaurantRepository.Object);
         }
 
         [TestMethod]
@@ -48,6 +51,14 @@ namespace RR.Tests.Unit.DomainServices
             _reviewService.Get(new Guid());
 
             _reviewRepository.Verify(x => x.GetById(It.IsAny<Guid>()), Times.AtLeastOnce);
+        }
+
+        [TestMethod]
+        public void CreateReview_GivenReview_CallRepositoryMethod()
+        {
+            _reviewService.CreateReview(new Review{Restaurant = new Restaurant()}, Guid.NewGuid());
+
+            _restaurantRepository.Verify(x => x.Update(It.IsAny<Restaurant>()), Times.AtLeastOnce);
         }
     }
 }

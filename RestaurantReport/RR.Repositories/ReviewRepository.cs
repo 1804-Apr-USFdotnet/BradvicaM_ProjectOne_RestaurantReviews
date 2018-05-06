@@ -37,5 +37,11 @@ namespace RR.Repositories
             _context.Reviews.Remove(review);
             _context.SaveChanges();
         }
+
+        public void Add(Review review)
+        {
+            _context.Reviews.Add(review);
+            _context.SaveChanges();
+        }
     }
 }

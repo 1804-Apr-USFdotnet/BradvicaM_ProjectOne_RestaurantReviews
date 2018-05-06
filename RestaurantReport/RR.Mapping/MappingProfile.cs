@@ -31,8 +31,7 @@ namespace RR.Mapping
                 .ForMember(des => des.ReviewId, opt => opt.UseValue(Guid.NewGuid()))
                 .ForMember(des => des.ReviewPublicId, opt => opt.UseValue(Guid.NewGuid()))
                 .ForMember(des => des.RestaurantId, opt => opt.Ignore())
-                .BeforeMap((des, src) => src.Restaurant = new Restaurant())
-                .ForPath(des => des.Restaurant.RestaurantPublicId, opt => opt.MapFrom(src => src.RestaurantPublicId));
+                .ForMember(des => des.Restaurant, opt => opt.Ignore());
 
             CreateMap<Restaurant, EditRestaurantViewModel>();
 
