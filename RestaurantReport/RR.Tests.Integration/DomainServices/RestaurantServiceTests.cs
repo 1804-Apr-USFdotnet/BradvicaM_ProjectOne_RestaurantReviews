@@ -23,28 +23,6 @@ namespace RR.Tests.Integration.DomainServices
         }
 
         [TestMethod]
-        public void ReviewRestaurant_GivenNewReview_UpdateRestaurantEntity()
-        {
-            var restaurant = _restaurantService.Get().First();
-
-            var review = new Review
-            {
-                Comment = "junk comment",
-                Rating = 5.0,
-                ReviewerName = "mike",
-                ReviewId = Guid.NewGuid(),
-                ReviewPublicId = Guid.NewGuid(),
-                Restaurant = restaurant
-            };
-
-            _restaurantService.ReviewRestaurant(review);
-
-            var sameRestaurant = _restaurantService.Get(restaurant.RestaurantPublicId);
-
-            Assert.IsTrue(sameRestaurant.Reviews.Contains(review));
-        }
-
-        [TestMethod]
         public void GetById_GivenId_ReturnsCorrectRestaurant()
         {
             var restaurant = _restaurantService.Get().First();

@@ -8,7 +8,6 @@ namespace RR.DomainContracts
     {
         List<Restaurant> TopThreeRatedRestaurants();
         List<Restaurant> PartialSearch(string searchTerm);
-        void ReviewRestaurant(Review review);
         List<Restaurant> Get(string orderPredicate);
         List<Restaurant> Get();
         Restaurant Get(Guid restaurantId);

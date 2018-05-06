@@ -37,16 +37,6 @@ namespace RR.Tests.Unit.DomainServices
         }
 
         [TestMethod]
-        public void ReviewRestaurant_GivenReview_CallsRepositoryUpdate()
-        {
-            var review = new Review{Restaurant = new Restaurant()};
-
-            _restaurantService.ReviewRestaurant(review);
-
-            _mockRepository.Verify(x => x.Update(It.IsAny<Restaurant>()), Times.AtLeastOnce);
-        }
-
-        [TestMethod]
         public void Get_GivenRestaurantId_CallsRepositoryMethod()
         {
             _restaurantService.Get(Guid.NewGuid());

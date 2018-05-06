@@ -50,18 +50,6 @@ namespace RR.DomainServices
             return _restaurantRepository.Get().ToList();
         }
 
-        public void ReviewRestaurant(Review review)
-        {
-            var restaurant = _restaurantRepository.GetById(review.Restaurant.RestaurantPublicId);
-
-            review.Restaurant = null;
-
-            restaurant.Reviews.Add(review);
-            restaurant.CalculateAverageRating(restaurant.Reviews);
-
-            _restaurantRepository.Update(restaurant);
-        }
-
         public Restaurant Get(Guid restaurantId)
         {
             return _restaurantRepository.GetById(restaurantId);
