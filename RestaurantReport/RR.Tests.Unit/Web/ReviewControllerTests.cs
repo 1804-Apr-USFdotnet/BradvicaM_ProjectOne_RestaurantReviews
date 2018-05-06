@@ -5,6 +5,7 @@ using AutoMapper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using RR.DomainContracts;
+using RR.Mapping;
 using RR.Models;
 using RR.ViewModels;
 using RR.Web;
@@ -27,8 +28,9 @@ namespace RR.Tests.Unit.Web
 
             var container = Bootstrapper.RegisterTypes();
             var mapper = container.Resolve<IMapper>();
+            var topographer = container.Resolve<ITopographer>();
 
-            _controller = new ReviewController(service.Object, mapper);
+            _controller = new ReviewController(service.Object, mapper, topographer);
         }
 
         [TestMethod]

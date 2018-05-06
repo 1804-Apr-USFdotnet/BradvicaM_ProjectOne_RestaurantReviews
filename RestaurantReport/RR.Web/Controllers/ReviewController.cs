@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using AutoMapper;
 using RR.DomainContracts;
+using RR.Mapping;
 using RR.Models;
 using RR.ViewModels;
 
@@ -10,11 +11,13 @@ namespace RR.Web.Controllers
     {
         private readonly IReviewService _reviewService;
         private readonly IMapper _mapper;
+        private readonly ITopographer _topographer;
 
-        public ReviewController(IReviewService reviewService, IMapper mapper)
+        public ReviewController(IReviewService reviewService, IMapper mapper, ITopographer topographer)
         {
             _reviewService = reviewService;
             _mapper = mapper;
+            _topographer = topographer;
         }
 
         [Route("Review/Edit")]
@@ -28,6 +31,7 @@ namespace RR.Web.Controllers
             return View("EditReview", viewModel);
         }
 
+        //USE TUPLES I GUESS
         [Route("Review/Edit")]
         [HttpPost]
         public ActionResult EditReview(EditReviewViewModel postViewModel)
@@ -36,12 +40,9 @@ namespace RR.Web.Controllers
 
             var review = _reviewService.Get(postViewModel.ReviewPublicId);
 
-            //Complex Mapper
-            var reviewToUpdate = _mapper.Map<EditReviewViewModel, Review>(postViewModel);
-            reviewToUpdate.Restaurant = review.Restaurant;
-            reviewToUpdate.ReviewId = review.ReviewId;
-            reviewToUpdate.RestaurantId = review.RestaurantId;
-
+            //To Tuples I Guess.
+            var reviewToUpdate = _topographer.Map(postViewModel, review);
+            
             _reviewService.UpdateReview(reviewToUpdate);
 
             return RedirectToAction("ListRestaurants", "Restaurant");

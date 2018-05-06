@@ -15,7 +15,7 @@ namespace RR.Models
 
         public override string ToString()
         {
-            return $"\nReviewId: {ReviewId}\nId: {ReviewPublicId}\nName: {ReviewerName}\nRating: {Rating}\nComment: {Comment}\n";
+            return $"\nReviewId: {ReviewId}\nId: {ReviewPublicId}\nName: {ReviewerName}\nRating: {Rating}\nComment: {Comment}\nRestaurantId: {RestaurantId}\nRestaurant: {Restaurant}\n";
         }
     }
 }

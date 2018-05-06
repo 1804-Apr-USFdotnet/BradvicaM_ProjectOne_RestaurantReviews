@@ -4,3 +4,16 @@ Id: ec6b66f8-c116-4ed5-ba00-bd0d72edabd7
 Name: Matt
 Rating: 7.5
 Comment: Goodio
+RestaurantId: 638f64c0-3b0c-442d-808e-9a71673e6ec7
+Restaurant: 
+Id: 638f64c0-3b0c-442d-808e-9a71673e6ec7
+RestaurantId: 14534a44-add2-40ef-a173-f5d321b7d2d2
+Name: John
+Street: 756 You Dr.
+City: Claremont
+State: CA
+ZipCode: 11415
+PhoneNumber: 1234567891
+Website: www.sfs.com
+Rating: 7.5
+

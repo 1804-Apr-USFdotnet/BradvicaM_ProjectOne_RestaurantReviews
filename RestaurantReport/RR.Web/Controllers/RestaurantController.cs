@@ -121,30 +121,6 @@ namespace RR.Web.Controllers
             return RedirectToAction("ListRestaurants");
         }
 
-        //Move to reviews
-        [Route("Restaurant/Review")]
-        [HttpGet]
-        public ActionResult CreateReview(ListRestaurantsViewModel getViewModel)
-        {
-            var viewModel = _mapper.Map<ListRestaurantsViewModel, CreateReviewViewModel>(getViewModel);
-
-            return View("CreateReview", viewModel);
-        }
-
-        //Move to reviews
-        [Route("Restaurant/Review")]
-        [HttpPost]
-        public ActionResult CreateReview(CreateReviewViewModel postViewModel)
-        {
-            if (!ModelState.IsValid) return View("CreateReview", postViewModel);
-
-            var review = _mapper.Map<Review>(postViewModel);
-
-            _restaurantService.ReviewRestaurant(review);
-
-            return RedirectToAction("ListRestaurants");
-        }
-
         [Route("Restaurant/Edit")]
         [HttpGet]
         public ActionResult EditRestaurant(ListRestaurantsViewModel postViewModel)
@@ -165,6 +141,9 @@ namespace RR.Web.Controllers
             var restaurant = _restaurantService.Get(postViewModel.RestaurantPublicId);
 
             //Complex Mapper
+            //USE TUPLES
+            //var tuple = new Tuple<EditRestaurantViewModel, Restaurant>(postViewModel, restaurant);
+            //var restaurantToUpdate = _mapper.Map<Tuple<EditRestaurantViewModel, Restaurant>, Restaurant>(tuple);
             var restaurantToUpdate = _mapper.Map<EditRestaurantViewModel, Restaurant>(postViewModel);
             restaurantToUpdate.RestaurantId = restaurant.RestaurantId;
             restaurantToUpdate.Reviews = restaurant.Reviews;

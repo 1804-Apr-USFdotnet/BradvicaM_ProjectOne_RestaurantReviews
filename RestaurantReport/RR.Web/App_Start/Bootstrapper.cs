@@ -27,7 +27,8 @@ namespace RR.Web
             //EntityFramework Context
             builder.RegisterType<RestaurantReportContext>().As<IContext>().InstancePerLifetimeScope();
 
-            //Automapper
+            //Mapping
+            builder.RegisterType<Topographer>().As<ITopographer>();
             builder.RegisterInstance(mapper).As<IMapper>();
 
             builder.RegisterType<LoggingService>().As<ILoggingService>();
