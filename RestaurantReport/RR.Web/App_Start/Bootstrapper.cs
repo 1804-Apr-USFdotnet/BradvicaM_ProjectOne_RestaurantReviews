@@ -23,6 +23,7 @@ namespace RR.Web
 
             var mapperConfiguration = new MapperConfiguration(cfg => { cfg.AddProfile(new MappingProfile()); });
             var mapper = mapperConfiguration.CreateMapper();
+            
 
             //EntityFramework Context
             builder.RegisterType<RestaurantReportContext>().As<IContext>().InstancePerLifetimeScope();

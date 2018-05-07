@@ -9,6 +9,8 @@ namespace RR.Mapping
 {
     public class MappingProfile : Profile
     {
+        
+
         public MappingProfile()
         {
             CreateMap<Restaurant, ViewRestaurantViewModel>();
@@ -77,6 +79,16 @@ namespace RR.Mapping
                 .ForMember(d => d.Reviews, o => o.MapFrom(s => s.Item1))
                 .ForMember(d => d.SelectReviewPublicId, o => o.Ignore());
 
+            CreateMap<Restaurant, RestaurantReviewsViewModel>()
+                .ForMember(d => d.Reviews, o => o.MapFrom(s => s.Reviews))
+                .ForMember(d => d.SelectReviewPublicId, o => o.Ignore())
+                .ForMember(d => d.Restaurant, o => o.MapFrom(s => s));
+
+            CreateMap<IEnumerable<Restaurant>, ListRestaurantsViewModel>()
+                .ForMember(d => d.ViewRestaurantViewModels, o => o.MapFrom(s => s))
+                .ForMember(d => d.ListOrder, o => o.Ignore())
+                .ForMember(d => d.SelectListItems, o => o.Ignore())
+                .ForMember(d => d.SelectRestaurantPublicId, o => o.Ignore());
         }
     }
 }

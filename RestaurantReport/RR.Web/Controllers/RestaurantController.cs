@@ -31,7 +31,7 @@ namespace RR.Web.Controllers
         {
             var restaurants = _restaurantService.Get();
 
-            var viewModel = _mapper.Map<ListRestaurantsViewModel>(_mapper.Map<IEnumerable<ViewRestaurantViewModel>>(restaurants));
+            var viewModel = _mapper.Map<ListRestaurantsViewModel>(restaurants);
 
             return View("ListRestaurants", viewModel);
         }
@@ -43,7 +43,7 @@ namespace RR.Web.Controllers
         {
             var restaurants = _restaurantService.Get(listRestaurantsViewModel.ListOrder);
 
-            var viewModel = _mapper.Map<ListRestaurantsViewModel>(_mapper.Map<IEnumerable<ViewRestaurantViewModel>>(restaurants));
+            var viewModel = _mapper.Map<ListRestaurantsViewModel>(restaurants);
 
             return View("ListRestaurants", viewModel);
         }
@@ -77,7 +77,7 @@ namespace RR.Web.Controllers
         {
             var results = _restaurantService.PartialSearch(searchTerm);
 
-            var viewModel = _mapper.Map<ListRestaurantsViewModel>(_mapper.Map<IEnumerable<ViewRestaurantViewModel>>(results));
+            var viewModel = _mapper.Map<ListRestaurantsViewModel>(results);
 
             return View("ListRestaurants", viewModel);
         }
@@ -89,9 +89,7 @@ namespace RR.Web.Controllers
         {
             var restaurant = _restaurantService.Get(postViewModel.SelectRestaurantPublicId);
 
-            var reviewsVm = _mapper.Map<IEnumerable<ViewReviewViewModel>>(restaurant.Reviews);
-            var restaurantVm = _mapper.Map<ViewRestaurantViewModel>(restaurant);
-            var viewModel = _mapper.Map<RestaurantReviewsViewModel>(new Tuple<IEnumerable<ViewReviewViewModel>, ViewRestaurantViewModel>(reviewsVm, restaurantVm));
+            var viewModel = _mapper.Map<RestaurantReviewsViewModel>(restaurant);
                 
             return View("ViewReviews", viewModel);
         }
