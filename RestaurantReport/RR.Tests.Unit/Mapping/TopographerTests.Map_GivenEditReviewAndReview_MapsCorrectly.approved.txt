@@ -1,0 +1,19 @@
+﻿
+ReviewId: 00000000-0000-0000-0000-000000000000
+Id: 00000000-0000-0000-0000-000000000000
+Name: new name
+Rating: 10
+Comment: new comment
+RestaurantId: 00000000-0000-0000-0000-000000000000
+Restaurant: 
+Id: 00000000-0000-0000-0000-000000000000
+RestaurantId: 00000000-0000-0000-0000-000000000000
+Name: Old Name
+Street: Old Street
+City: Old City
+State: Old State
+ZipCode: 0
+PhoneNumber: 1234567890
+Website: Old Website
+Rating: 4
+

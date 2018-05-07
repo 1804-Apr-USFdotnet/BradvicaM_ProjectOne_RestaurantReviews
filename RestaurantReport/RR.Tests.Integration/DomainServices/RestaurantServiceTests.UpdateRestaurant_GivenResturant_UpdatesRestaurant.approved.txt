@@ -1,0 +1,11 @@
+﻿
+Id: 638f64c0-3b0c-442d-808e-9a71673e6ec7
+RestaurantId: 14534a44-add2-40ef-a173-f5d321b7d2d2
+Name: John
+Street: 756 You Dr.
+City: Claremont
+State: CA
+ZipCode: 11415
+PhoneNumber: 1234567891
+Website: www.sfs.com
+Rating: 8

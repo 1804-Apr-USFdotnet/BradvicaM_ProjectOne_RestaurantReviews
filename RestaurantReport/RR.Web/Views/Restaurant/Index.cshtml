@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Restaurant Index</h2>
+
+<div class="row mb-5">
+    <div class="col">
+        <div class="card">
+            <img class="card-img-top" src="~/Content/Images/restaurantImage1.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h4 class="card-title text-dark">All Restaurants</h4>
+                <p class="card-text text-dark">View some of your local eateries.</p>
+                @Html.ActionLink("All Restaurants", "ListRestaurants", "Restaurant", null, new {@class = "btn btn-dark"})
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <img class="card-img-top" src="~/Content/Images/restaurantImage2.jpg" atl="Card image cap"/>
+            <div class="card-body">
+                <h4 class="card-title text-dark">Add Restaurant</h4>
+                <p class ="card-text text-dark">Don't see a restaurant here? Add it yourself.</p>
+                @Html.ActionLink("Add Restaurant", "CreateRestaurant", "Restaurant", null, new {@class = "btn btn-dark"})
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <img class="card-img-top" src="~/Content/Images/restaurantImage3.jpg" atl="Card image cap" />
+            <div class="card-body">
+                <h4 class="card-title text-dark">Top Rated Restaurants</h4>
+                <p class="card-text text-dark">Look at what people are raving about.</p>
+                @Html.ActionLink("Top Rated Restaurants", "TopRatedRestaurants", "Restaurant", null, new { @class = "btn btn-dark" })
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <img class="card-img-top" src="~/Content/Images/restaurantImage4.jpg" atl="Card image cap" />
+            <div class="card-body">
+                <h4 class="card-title text-dark">Search</h4>
+                <p class="card-text text-dark">Search for a restaurant.</p>
+                @using (Html.BeginForm("RestaurantSearch", "Restaurant", FormMethod.Post))
+                {
+                    @Html.TextBox("searchTerm", null , new { htmlAttributes = new { placeholder = "Search term..." }})
+                    <input type="submit" class="text-light btn btn-dark" value="See Details" />
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+

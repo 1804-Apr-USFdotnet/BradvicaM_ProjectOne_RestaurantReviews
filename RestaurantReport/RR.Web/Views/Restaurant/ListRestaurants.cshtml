@@ -1,0 +1,76 @@
+﻿@model RR.ViewModels.ListRestaurantsViewModel
+
+@{
+    ViewBag.Title = "ListRestaurants";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ListRestaurants</h2>
+
+<div class="row mb-3">
+    <div class="col">
+        @using (Html.BeginForm("ListRestaurants", "Restaurant", FormMethod.Post))
+        {
+            @Html.DropDownListFor(x => x.ListOrder, Model.SelectListItems)
+
+            <input type="submit" class="btn btn-light" value="Submit" />
+        }
+    </div>
+    <div class="col text-right">
+        @Html.ActionLink("Add Restaurant", "CreateRestaurant", "Restaurant", null, new { @class = "btn btn-light" })
+    </div>
+</div>
+
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Average Rating</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip Code</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var i in Model.ViewRestaurantViewModels)
+        {
+            <tr>
+                <td>@i.Name</td>
+                <td>@i.AverageRating</td>
+                <td>@i.Street</td>
+                <td>@i.City</td>
+                <td>@i.State</td>
+                <td>@i.ZipCode</td>
+                <td>
+                    @using (Html.BeginForm("ViewReviews", "Restaurant", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(x => x.SelectRestaurantPublicId, new { Value = i.RestaurantPublicId})
+                        <input type="submit" class="btn btn-dark text-light" value="See Reviews"/>
+                    }
+                </td>
+                <td>
+                    @using (Html.BeginForm("CreateReview", "Review", FormMethod.Get))
+                    {
+                        @Html.HiddenFor(x => x.SelectRestaurantPublicId, new { Value = i.RestaurantPublicId})
+                        <input type="submit" class="btn btn-dark text-light" value="Review" />
+                    }
+                </td>
+                <td>
+                    @using (Html.BeginForm("EditRestaurant", "Restaurant", FormMethod.Get))
+                    {
+                        @Html.HiddenFor(x => x.SelectRestaurantPublicId, new { Value = i.RestaurantPublicId})
+                        <input type="submit" class="btn btn-dark text-light" value="Edit" />
+                    }
+                </td>
+                <td>
+                    @using (Html.BeginForm("DeleteRestaurant", "Restaurant", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(x => x.SelectRestaurantPublicId, new { Value = i.RestaurantPublicId})
+                        <input type="submit" class="btn btn-dark text-light" value="Delete" />
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

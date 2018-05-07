@@ -1,0 +1,24 @@
+﻿Restaurants:[0] = 
+Id: 00000000-0000-0000-0000-000000000000
+RestaurantId: 00000000-0000-0000-0000-000000000000
+Name: Mike
+Street: 123 billy St.
+City: Tampa
+State: FL
+ZipCode: 18172
+PhoneNumber: 123412312
+Website: www.hithere.com
+Rating: 9
+
+Restaurants:[1] = 
+Id: 00000000-0000-0000-0000-000000000000
+RestaurantId: 00000000-0000-0000-0000-000000000000
+Name: Frank
+Street: 123 Me St.
+City: Tampa
+State: billy
+ZipCode: 18172
+PhoneNumber: 123412312
+Website: www.hithere.com
+Rating: 4
+

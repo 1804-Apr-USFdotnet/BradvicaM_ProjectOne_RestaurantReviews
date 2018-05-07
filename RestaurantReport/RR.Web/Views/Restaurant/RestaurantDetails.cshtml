@@ -1,0 +1,16 @@
+﻿@model RR.ViewModels.ViewRestaurantViewModel
+
+@{
+    ViewBag.Title = "RestaurantDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Restaurant Details</h2>
+
+<div class="jumbotron text-dark">
+    <h1 class="display-4">@Model.Name <span class="text-right">@Model.AverageRating</span></h1>
+    <hr/>
+    <p>@Model.Street @Model.City @Model.State @Model.ZipCode</p>
+    <p>@Model.PhoneNumber @Model.Website</p>
+</div>
+

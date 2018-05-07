@@ -1,0 +1,51 @@
+﻿@model RR.ViewModels.RestaurantReviewsViewModel
+
+@{
+    ViewBag.Title = "ViewReviews";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Reviews for: @Model.Restaurant.Name</h2>
+<h4>@Html.LabelFor(x => x.Restaurant.AverageRating) : @Model.Restaurant.AverageRating</h4>
+<h6>@Model.Restaurant.Street </h6>
+<h6>@Model.Restaurant.City @Model.Restaurant.ZipCode @Model.Restaurant.State</h6>
+<h6>@Model.Restaurant.PhoneNumber @Model.Restaurant.Website</h6>
+
+<table class="table table-striped mb-3 mt-3">
+    <thead>
+    <tr>
+        <th>Reviewer Name</th>
+        <th>Rating</th>
+        <th>Comments</th>
+        <th>Edit</th>
+        <th>Remove</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var i in Model.Reviews)
+    {
+        <tr>
+            <td>@i.ReviewerName</td>
+            <td>@i.Rating</td>
+            <td>@i.Comment</td>
+            <td>
+                @using (Html.BeginForm("EditReview", "Review", FormMethod.Get))
+                {
+                    @Html.HiddenFor(x => x.SelectReviewPublicId, new { Value = i.ReviewPublicId})
+                    <input type="submit" class="btn btn-dark text-light" value="Edit Review"/>
+                }
+            </td>
+            <td>
+                @using (Html.BeginForm("DeleteReview", "Review", FormMethod.Post))
+                { 
+                    @Html.HiddenFor(x => x.SelectReviewPublicId, new { Value = i.ReviewPublicId })
+                    <input type="submit" class="btn btn-dark text-light" value="Delete Review" />
+                }
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+
+
