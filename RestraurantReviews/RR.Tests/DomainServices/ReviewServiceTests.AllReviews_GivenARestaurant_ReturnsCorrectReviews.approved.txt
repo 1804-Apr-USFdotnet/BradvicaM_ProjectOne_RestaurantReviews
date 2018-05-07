@@ -1,7 +1,0 @@
-﻿Restaurant Reviews:[0] = 
-ReviewId: aca50253-6def-4de0-b5ba-037009c2c890
-Rating: 5
-Comment: It was ok.
-Name: Mike
-Id: e9e19489-3f47-4e71-af31-55ca509dbf69
-
