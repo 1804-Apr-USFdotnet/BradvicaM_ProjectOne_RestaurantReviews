@@ -1,0 +1,8 @@
+﻿
+RestaurantPublicId: 00000000-0000-0000-0000-000000000000
+Name: Some Name
+AverageRating: 1
+Street: 123 Some St.
+City: Some City
+State: SA
+ZipCode: 12345

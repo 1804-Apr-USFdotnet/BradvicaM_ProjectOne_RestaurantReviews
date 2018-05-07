@@ -1,0 +1,20 @@
+﻿
+ListOrder: Some List Order
+SelectRestaurantPublicId: 00000000-0000-0000-0000-000000000000
+SelectListItems: 
+name
+state
+city
+rating
+
+ViewRestaurantViewModels: 
+RestaurantPublicId: 00000000-0000-0000-0000-000000000000
+Name: Some Name
+Street: 123 Some St.
+City: Some City
+State: SA
+ZipCode: 12345
+PhoneNumber: 1234567890
+AverageRating: 1
+Website: www.testsite.com
+

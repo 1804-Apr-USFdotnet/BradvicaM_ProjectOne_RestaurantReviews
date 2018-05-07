@@ -118,6 +118,11 @@
     <Compile Include="QueryObjects\TopRatedRestaurantsQueryTests.cs" />
     <Compile Include="QueryObjects\PartialSearchQueryTests.cs" />
     <Compile Include="QueryObjects\RestaurantOrderQueryTests.cs" />
+    <Compile Include="ViewModels\EditReviewViewModelTests.cs" />
+    <Compile Include="ViewModels\CreateReviewViewModelTests.cs" />
+    <Compile Include="ViewModels\ListRestaurantsViewModelTests.cs" />
+    <Compile Include="ViewModels\TopRatedRestaurantViewModelTests.cs" />
+    <Compile Include="ViewModels\ViewRestaurantViewModelTests.cs" />
     <Compile Include="Web\HomeControllerTests.cs" />
     <Compile Include="Web\RestaurantControllerTests.cs" />
     <Compile Include="Web\ReviewControllerTests.cs" />

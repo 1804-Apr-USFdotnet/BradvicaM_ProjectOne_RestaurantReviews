@@ -1,0 +1,9 @@
+﻿TopRatedRestaurants:[0] = 
+RestaurantPublicId: 14534a44-add2-40ef-a173-f5d321b7d2d2
+Name: John
+AverageRating: 5
+Street: 756 You Dr.
+City: Claremont
+State: CA
+ZipCode: 11415
+
