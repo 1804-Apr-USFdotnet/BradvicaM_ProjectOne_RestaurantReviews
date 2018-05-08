@@ -9,7 +9,7 @@
 
 <div class="row mb-3">
     <div class="col">
-        @using (Html.BeginForm("ListRestaurants", "Restaurant", FormMethod.Post))
+        @using (Html.BeginForm("ListRestaurants", "Restaurant", FormMethod.Get))
         {
             @Html.DropDownListFor(x => x.ListOrder, Model.SelectListItems)
 

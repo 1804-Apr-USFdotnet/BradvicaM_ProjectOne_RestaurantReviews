@@ -122,6 +122,7 @@
     <Compile Include="ViewModels\CreateReviewViewModelTests.cs" />
     <Compile Include="ViewModels\ListRestaurantsViewModelTests.cs" />
     <Compile Include="ViewModels\TopRatedRestaurantViewModelTests.cs" />
+    <Compile Include="ViewModels\EditRestaurantViewModelTests.cs" />
     <Compile Include="ViewModels\ViewRestaurantViewModelTests.cs" />
     <Compile Include="Web\HomeControllerTests.cs" />
     <Compile Include="Web\RestaurantControllerTests.cs" />

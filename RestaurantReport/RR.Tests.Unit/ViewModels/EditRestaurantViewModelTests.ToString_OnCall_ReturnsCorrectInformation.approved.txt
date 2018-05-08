@@ -1,0 +1,9 @@
+﻿
+RestaurantPublicId: 00000000-0000-0000-0000-000000000000
+Name: Some Name
+Street: 123 Whatever Dt.
+City: Some City
+State: CA
+ZipCode: 12345
+PhoneNumber: 1234567890
+Website: www.blah.com

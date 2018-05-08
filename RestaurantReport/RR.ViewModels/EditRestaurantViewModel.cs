@@ -29,5 +29,11 @@ namespace RR.ViewModels
 
         [Required]
         public string Website { get; set; }
+
+        public override string ToString()
+        {
+            return $"\nRestaurantPublicId: {RestaurantPublicId}\nName: {Name}\nStreet: {Street}\nCity: {City}" +
+                   $"\nState: {State}\nZipCode: {ZipCode}\nPhoneNumber: {PhoneNumber}\nWebsite: {Website}\n";
+        }
     }
 }

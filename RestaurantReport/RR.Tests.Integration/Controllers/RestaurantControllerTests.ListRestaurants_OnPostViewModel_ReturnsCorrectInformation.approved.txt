@@ -8,13 +8,13 @@ city
 rating
 
 ViewRestaurantViewModels: 
-RestaurantPublicId: 14534a44-add2-40ef-a173-f5d321b7d2d2
-Name: John
-Street: 756 You Dr.
-City: Claremont
-State: CA
-ZipCode: 11415
-PhoneNumber: 1234567891
-AverageRating: 5
-Website: www.sfs.com
+RestaurantPublicId: 6897a4b8-179d-4ece-b7f9-f695fba8aba1
+Name: Some Name
+Street: 123 Some St.
+City: Jake
+State: SA
+ZipCode: 0
+PhoneNumber: 1234567890
+AverageRating: 1
+Website: www.whatever.com
 

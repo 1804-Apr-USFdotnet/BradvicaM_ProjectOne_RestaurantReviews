@@ -8,7 +8,7 @@ city
 rating
 
 ViewRestaurantViewModels: 
-RestaurantPublicId: d2a9326c-7a95-4faa-b324-c5349839f447
+RestaurantPublicId: a80ae1c3-d37a-4820-9c3a-53164f6f50bc
 Name: Some Name
 Street: 123 Some St.
 City: Jake

@@ -38,7 +38,7 @@ namespace RR.Web.Controllers
 
         //Change to get
         [Route("Restaurant/List")]
-        [HttpPost]
+        [HttpGet]
         public ActionResult ListRestaurants(ListRestaurantsViewModel listRestaurantsViewModel)
         {
             var restaurants = _restaurantService.Get(listRestaurantsViewModel.ListOrder);
