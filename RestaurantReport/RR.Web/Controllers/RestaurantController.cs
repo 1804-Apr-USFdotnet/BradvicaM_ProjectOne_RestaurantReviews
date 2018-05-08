@@ -5,6 +5,7 @@ using AutoMapper;
 using RR.DomainContracts;
 using RR.Models;
 using RR.ViewModels;
+using RR.Web.Filter;
 
 namespace RR.Web.Controllers
 {
@@ -25,6 +26,7 @@ namespace RR.Web.Controllers
             return View("Index");
         }
 
+        [ExceptionFilter]
         [Route("Restaurant/List")]
         [HttpGet]
         public ActionResult ListRestaurants()
@@ -36,6 +38,7 @@ namespace RR.Web.Controllers
             return View("ListRestaurants", viewModel);
         }
 
+        [ExceptionFilter]
         [Route("Restaurant/OrderList")]
         [HttpGet]
         public ActionResult OrderListRestaurants(ListRestaurantsViewModel listRestaurantsViewModel)
@@ -47,6 +50,7 @@ namespace RR.Web.Controllers
             return View("ListRestaurants", viewModel);
         }
 
+        [ExceptionFilter]
         [Route("Restaurant/TopRated")]
         public ActionResult TopRatedRestaurants()
         {
@@ -57,6 +61,7 @@ namespace RR.Web.Controllers
             return View("TopRatedRestaurants", viewModel);
         }
 
+        [ExceptionFilter]
         [Route("Restaurant/Details")]
         [HttpGet]
         public ActionResult RestaurantDetails(Guid restaurantId)
@@ -68,6 +73,7 @@ namespace RR.Web.Controllers
             return View("RestaurantDetails", viewModel);
         }
 
+        [ExceptionFilter]
         [Route("Restaurant/Search")]
         [HttpGet]
         public ActionResult RestaurantSearch(string searchTerm)
@@ -79,6 +85,7 @@ namespace RR.Web.Controllers
             return View("ListRestaurants", viewModel);
         }
 
+        [ExceptionFilter]
         [Route("Restaurant/Reviews")]
         [HttpGet]
         public ActionResult ViewReviews(ListRestaurantsViewModel postViewModel)
@@ -97,6 +104,7 @@ namespace RR.Web.Controllers
             return View("CreateRestaurant");
         }
 
+        [ExceptionFilter]
         [Route("Restaurant/Create")]
         [HttpPost]
         public ActionResult CreateRestaurant(CreateRestaurantViewModel viewModel)
@@ -110,6 +118,7 @@ namespace RR.Web.Controllers
             return RedirectToAction("ListRestaurants");
         }
 
+        [ExceptionFilter]
         [Route("Restaurant/Edit")]
         [HttpGet]
         public ActionResult EditRestaurant(ListRestaurantsViewModel postViewModel)
@@ -121,6 +130,7 @@ namespace RR.Web.Controllers
             return View("EditRestaurant", viewModel);
         }
 
+        [ExceptionFilter]
         [Route("Restaurant/Edit")]
         [HttpPost]
         public ActionResult EditRestaurant(EditRestaurantViewModel postViewModel)
@@ -136,6 +146,7 @@ namespace RR.Web.Controllers
             return RedirectToAction("ListRestaurants");
         }
 
+        [ExceptionFilter]
         [Route("Restaurant/Delete")]
         [HttpPost]
         public ActionResult DeleteRestaurant(ListRestaurantsViewModel postViewModel)
