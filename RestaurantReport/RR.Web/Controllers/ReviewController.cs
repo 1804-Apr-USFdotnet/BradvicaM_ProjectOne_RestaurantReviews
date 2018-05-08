@@ -4,6 +4,7 @@ using AutoMapper;
 using RR.DomainContracts;
 using RR.Models;
 using RR.ViewModels;
+using RR.Web.Filter;
 
 namespace RR.Web.Controllers
 {
@@ -18,6 +19,7 @@ namespace RR.Web.Controllers
             _mapper = mapper;
         }
 
+        [ExceptionFilter]
         [Route("Review/Edit")]
         [HttpGet]
         public ActionResult EditReview(RestaurantReviewsViewModel getViewModel)
@@ -29,6 +31,7 @@ namespace RR.Web.Controllers
             return View("EditReview", viewModel);
         }
 
+        [ExceptionFilter]
         [Route("Review/Edit")]
         [HttpPost]
         public ActionResult EditReview(EditReviewViewModel postViewModel)
@@ -44,6 +47,7 @@ namespace RR.Web.Controllers
             return RedirectToAction("ListRestaurants", "Restaurant");
         }
 
+        [ExceptionFilter]
         [Route("Review/Delete")]
         [HttpPost]
         public ActionResult DeleteReview(RestaurantReviewsViewModel postViewModel)
@@ -55,6 +59,7 @@ namespace RR.Web.Controllers
             return RedirectToAction("ListRestaurants", "Restaurant");
         }
 
+        [ExceptionFilter]
         [Route("Review/Create")]
         [HttpGet]
         public ActionResult CreateReview(ListRestaurantsViewModel getViewModel)
@@ -64,6 +69,7 @@ namespace RR.Web.Controllers
             return View("CreateReview", viewModel);
         }
 
+        [ExceptionFilter]
         [Route("Review/Create")]
         [HttpPost]
         public ActionResult CreateReview(CreateReviewViewModel postViewModel)

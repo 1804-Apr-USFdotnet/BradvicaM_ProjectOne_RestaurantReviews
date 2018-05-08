@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using RR.Web.Filter;
 
 namespace RR.Web
 {
@@ -7,6 +8,7 @@ namespace RR.Web
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            
         }
     }
 }
