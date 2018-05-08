@@ -20,10 +20,12 @@ namespace RR.Mapping
             CreateMap<Review, ViewReviewViewModel>();
 
             CreateMap<CreateRestaurantViewModel, Restaurant>()
+                .BeforeMap((s, d) => d.RestaurantId = Guid.NewGuid())
+                .BeforeMap((s, d) => d.RestaurantPublicId = Guid.NewGuid())
                 .ForMember(des => des.Reviews, opt => opt.Ignore())
-                .ForMember(des => des.AverageRating, opt => opt.Ignore())
-                .ForMember(des => des.RestaurantId, opt => opt.UseValue(Guid.NewGuid()))
-                .ForMember(des => des.RestaurantPublicId, opt => opt.UseValue(Guid.NewGuid()));
+                .ForMember(des => des.AverageRating, opt => opt.Ignore());
+                //.ForMember(des => des.RestaurantId, opt => opt.UseValue(Guid.NewGuid()))
+                //.ForMember(des => des.RestaurantPublicId, opt => opt.UseValue(Guid.NewGuid()));
 
             CreateMap<ListRestaurantsViewModel, CreateReviewViewModel>()
                 .ForMember(des => des.Rating, opt => opt.Ignore())
@@ -32,8 +34,10 @@ namespace RR.Mapping
                 .ForMember(des => des.RestaurantPublicId, opt => opt.MapFrom(src => src.SelectRestaurantPublicId));
 
             CreateMap<CreateReviewViewModel, Review>()
-                .ForMember(des => des.ReviewId, opt => opt.UseValue(Guid.NewGuid()))
-                .ForMember(des => des.ReviewPublicId, opt => opt.UseValue(Guid.NewGuid()))
+                .BeforeMap((s, d) => d.ReviewId = Guid.NewGuid())
+                .BeforeMap((s, d) => d.ReviewPublicId = Guid.NewGuid())
+                //.ForMember(des => des.ReviewId, opt => opt.UseValue(Guid.NewGuid()))
+                //.ForMember(des => des.ReviewPublicId, opt => opt.UseValue(Guid.NewGuid()))
                 .ForMember(des => des.RestaurantId, opt => opt.Ignore())
                 .ForMember(des => des.Restaurant, opt => opt.Ignore());
 

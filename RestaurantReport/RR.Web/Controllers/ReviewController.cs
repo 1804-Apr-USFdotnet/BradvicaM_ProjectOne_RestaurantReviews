@@ -74,7 +74,10 @@ namespace RR.Web.Controllers
         [HttpPost]
         public ActionResult CreateReview(CreateReviewViewModel postViewModel)
         {
-            if (!ModelState.IsValid) return View("CreateReview", postViewModel);
+            if (!ModelState.IsValid)
+            {
+                return View("CreateReview", postViewModel);
+            }
 
             var review = _mapper.Map<Review>(postViewModel);
 
