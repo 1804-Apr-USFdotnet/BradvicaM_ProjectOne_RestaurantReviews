@@ -81,7 +81,7 @@ namespace RR.Tests.Integration.Controllers
             _testContext.Restaurants.Add(restaurant);
             _testContext.SaveChanges();
 
-            var result = _controller.ListRestaurants(new ListRestaurantsViewModel {ListOrder = "name"}) as ViewResult;
+            var result = _controller.OrderListRestaurants(new ListRestaurantsViewModel {ListOrder = "name"}) as ViewResult;
 
             Approvals.Verify(result.Model.ToString());
         }

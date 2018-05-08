@@ -9,7 +9,7 @@
 
 <div class="row mb-3">
     <div class="col">
-        @using (Html.BeginForm("ListRestaurants", "Restaurant", FormMethod.Get))
+        @using (Html.BeginForm("OrderListRestaurants", "Restaurant", FormMethod.Get))
         {
             @Html.DropDownListFor(x => x.ListOrder, Model.SelectListItems)
 
@@ -26,10 +26,13 @@
         <tr>
             <th>Name</th>
             <th>Average Rating</th>
-            <th>Street</th>
             <th>City</th>
             <th>State</th>
-            <th>Zip Code</th>
+            <th>Details</th>
+            <th>See Reviews</th>
+            <th>Review</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -38,12 +41,17 @@
             <tr>
                 <td>@i.Name</td>
                 <td>@i.AverageRating</td>
-                <td>@i.Street</td>
                 <td>@i.City</td>
                 <td>@i.State</td>
-                <td>@i.ZipCode</td>
                 <td>
-                    @using (Html.BeginForm("ViewReviews", "Restaurant", FormMethod.Post))
+                    @using (Html.BeginForm("RestaurantDetails", "Restaurant", FormMethod.Get))
+                    {
+                        @Html.Hidden("restaurantId", i.RestaurantPublicId)
+                        <input type="submit" class="text-light btn btn-dark" value="See Details" />
+                    }
+                </td>
+                <td>
+                    @using (Html.BeginForm("ViewReviews", "Restaurant", FormMethod.Get))
                     {
                         @Html.HiddenFor(x => x.SelectRestaurantPublicId, new { Value = i.RestaurantPublicId})
                         <input type="submit" class="btn btn-dark text-light" value="See Reviews"/>

@@ -45,7 +45,7 @@
             <div class="card-body">
                 <h4 class="card-title text-dark">Search</h4>
                 <p class="card-text text-dark">Search for a restaurant.</p>
-                @using (Html.BeginForm("RestaurantSearch", "Restaurant", FormMethod.Post))
+                @using (Html.BeginForm("RestaurantSearch", "Restaurant", FormMethod.Get))
                 {
                     @Html.TextBox("searchTerm", null , new { placeholder = "Search term..." })
                     <input type="submit" class="text-light btn btn-dark" value="See Details" />

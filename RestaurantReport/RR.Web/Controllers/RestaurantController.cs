@@ -36,10 +36,9 @@ namespace RR.Web.Controllers
             return View("ListRestaurants", viewModel);
         }
 
-        //Change to get
-        [Route("Restaurant/List")]
+        [Route("Restaurant/OrderList")]
         [HttpGet]
-        public ActionResult ListRestaurants(ListRestaurantsViewModel listRestaurantsViewModel)
+        public ActionResult OrderListRestaurants(ListRestaurantsViewModel listRestaurantsViewModel)
         {
             var restaurants = _restaurantService.Get(listRestaurantsViewModel.ListOrder);
 
@@ -58,9 +57,8 @@ namespace RR.Web.Controllers
             return View("TopRatedRestaurants", viewModel);
         }
 
-        //Change to get
         [Route("Restaurant/Details")]
-        [HttpPost]
+        [HttpGet]
         public ActionResult RestaurantDetails(Guid restaurantId)
         {
             var restaurant = _restaurantService.Get(restaurantId);
@@ -70,9 +68,8 @@ namespace RR.Web.Controllers
             return View("RestaurantDetails", viewModel);
         }
 
-        //Change to get
         [Route("Restaurant/Search")]
-        [HttpPost]
+        [HttpGet]
         public ActionResult RestaurantSearch(string searchTerm)
         {
             var results = _restaurantService.PartialSearch(searchTerm);
@@ -82,9 +79,8 @@ namespace RR.Web.Controllers
             return View("ListRestaurants", viewModel);
         }
 
-        //Change to get
         [Route("Restaurant/Reviews")]
-        [HttpPost]
+        [HttpGet]
         public ActionResult ViewReviews(ListRestaurantsViewModel postViewModel)
         {
             var restaurant = _restaurantService.Get(postViewModel.SelectRestaurantPublicId);
