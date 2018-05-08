@@ -1,0 +1,22 @@
+﻿
+Id: 1173c864-11a5-49f0-9868-b39231603928
+RestaurantId: 0a4d887b-4d3a-4c25-83d8-d4d04ecd0042
+Name: Some Name
+Street: 123 Some St.
+City: Jake
+State: SA
+ZipCode: 0
+PhoneNumber: 1234567890
+Website: www.whatever.com
+Rating: 1
+
+Id: 1173c864-11a5-49f0-9868-b39231603928
+RestaurantId: 0a4d887b-4d3a-4c25-83d8-d4d04ecd0042
+Name: New Name
+Street: 123 New Street
+City: New City
+State: NS
+ZipCode: 54321
+PhoneNumber: 09987654321
+Website: www.new.com
+Rating: 1

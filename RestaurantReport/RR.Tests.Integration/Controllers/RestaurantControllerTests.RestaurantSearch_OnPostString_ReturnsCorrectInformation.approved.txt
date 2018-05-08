@@ -1,0 +1,20 @@
+﻿
+ListOrder: 
+SelectRestaurantPublicId: 00000000-0000-0000-0000-000000000000
+SelectListItems: 
+name
+state
+city
+rating
+
+ViewRestaurantViewModels: 
+RestaurantPublicId: a80ae1c3-d37a-4820-9c3a-53164f6f50bc
+Name: Some Name
+Street: 123 Some St.
+City: Jake
+State: SA
+ZipCode: 0
+PhoneNumber: 1234567890
+AverageRating: 1
+Website: www.whatever.com
+

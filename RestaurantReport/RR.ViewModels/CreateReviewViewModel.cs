@@ -15,5 +15,10 @@ namespace RR.ViewModels
         public double Rating { get; set; }
 
         public string Comment { get; set; }
+
+        public override string ToString()
+        {
+            return $"\nRestaurantPublicId: {RestaurantPublicId}\nReviewerName: {ReviewerName}\nRating: {Rating}\nComment: {Comment}\n";
+        }
     }
 }

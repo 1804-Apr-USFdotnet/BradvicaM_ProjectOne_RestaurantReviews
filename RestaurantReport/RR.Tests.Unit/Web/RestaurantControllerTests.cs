@@ -62,7 +62,7 @@ namespace RR.Tests.Unit.Web
         [TestMethod]
         public void ListRestaurants_OnPostViewModel_ReturnsCorrectView()
         {
-            var result = _controller.ListRestaurants(new ListRestaurantsViewModel()) as ViewResult;
+            var result = _controller.OrderListRestaurants(new ListRestaurantsViewModel()) as ViewResult;
 
             Assert.AreEqual("ListRestaurants", result.ViewName);
         }
@@ -70,7 +70,7 @@ namespace RR.Tests.Unit.Web
         [TestMethod]
         public void ListRestaurants_OnPostViewModel_ReturnsCorrectViewModel()
         {
-            var result = _controller.ListRestaurants(new ListRestaurantsViewModel()) as ViewResult;
+            var result = _controller.OrderListRestaurants(new ListRestaurantsViewModel()) as ViewResult;
 
             Assert.IsInstanceOfType(result.Model, typeof(ListRestaurantsViewModel));
         }

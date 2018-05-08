@@ -13,5 +13,11 @@ namespace RR.ViewModels
         public string PhoneNumber { get; set; }
         public double AverageRating { get; set; }
         public string Website { get; set; }
+
+        public override string ToString()
+        {
+            return $"\nRestaurantPublicId: {RestaurantPublicId}\nName: {Name}\nStreet: {Street}\nCity: {City}" +
+                   $"\nState: {State}\nZipCode: {ZipCode}\nPhoneNumber: {PhoneNumber}\nAverageRating: {AverageRating}\nWebsite: {Website}\n";
+        }
     }
 }

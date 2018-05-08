@@ -1,0 +1,38 @@
+﻿
+ReviewId: 6daba6ac-f46f-4d22-8715-875829dff646
+Id: f9ebf30b-d677-4bed-9f82-eed80b52d431
+Name: Default
+Rating: 1
+Comment: Default Comment
+RestaurantId: 00000000-0000-0000-0000-000000000000
+Restaurant: 
+Id: 638f64c0-3b0c-442d-808e-9a71673e6ec7
+RestaurantId: 14534a44-add2-40ef-a173-f5d321b7d2d2
+Name: John
+Street: 756 You Dr.
+City: Claremont
+State: CA
+ZipCode: 11415
+PhoneNumber: 1234567891
+Website: www.sfs.com
+Rating: 2.5
+
+
+ReviewId: 6daba6ac-f46f-4d22-8715-875829dff646
+Id: f9ebf30b-d677-4bed-9f82-eed80b52d431
+Name: New Name
+Rating: 10
+Comment: New Comment
+RestaurantId: 638f64c0-3b0c-442d-808e-9a71673e6ec7
+Restaurant: 
+Id: 638f64c0-3b0c-442d-808e-9a71673e6ec7
+RestaurantId: 14534a44-add2-40ef-a173-f5d321b7d2d2
+Name: John
+Street: 756 You Dr.
+City: Claremont
+State: CA
+ZipCode: 11415
+PhoneNumber: 1234567891
+Website: www.sfs.com
+Rating: 10
+

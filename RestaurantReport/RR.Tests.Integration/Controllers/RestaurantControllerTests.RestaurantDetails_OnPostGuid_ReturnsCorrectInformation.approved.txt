@@ -1,0 +1,10 @@
+﻿
+RestaurantPublicId: 6ae03296-2bd6-4d52-a608-aa2f99ebaba4
+Name: Some Name
+Street: 123 Some St.
+City: Some City
+State: SA
+ZipCode: 0
+PhoneNumber: 1234567890
+AverageRating: 1
+Website: www.whatever.com

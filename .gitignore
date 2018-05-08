@@ -433,3 +433,6 @@ __pycache__/
 
 
 # End of https://www.gitignore.io/api/csharp,visualstudio
+RestaurantReport/RR.Tests.Integration/Controllers/ReviewControllerTests.EditReviews_OnGetGivenViewModel_ReturnsCorrectInformation.received.txt
+RestaurantReport/RR.Tests.Unit/ViewModels/ListRestaurantsViewModelTests.TestMethod1.received.txt
+RestaurantReport/RR.Tests.Integration/Controllers/RestaurantControllerTests.ListRestaurants_OnGet_ReturnsCorrectInformation.received.txt

@@ -1,0 +1,9 @@
+﻿TopRatedRestaurants:[0] = 
+RestaurantPublicId: 0632d258-ed85-4111-b90a-6f16b4aaaa9b
+Name: Some Name
+AverageRating: 1
+Street: 123 Some St.
+City: Jake
+State: SA
+ZipCode: 0
+

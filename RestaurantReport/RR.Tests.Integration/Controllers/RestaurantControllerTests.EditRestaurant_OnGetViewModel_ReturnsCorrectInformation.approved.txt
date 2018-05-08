@@ -1,0 +1,9 @@
+﻿
+RestaurantPublicId: 0f9fb7b6-b4cc-4411-9500-0c521e6416fb
+Name: Some Name
+Street: 123 Some St.
+City: Jake
+State: SA
+ZipCode: 0
+PhoneNumber: 1234567890
+Website: www.whatever.com
